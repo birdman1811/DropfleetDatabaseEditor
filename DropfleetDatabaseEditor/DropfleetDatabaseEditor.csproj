@@ -68,10 +68,14 @@
     <Compile Include="Datastore\Faction.cs" />
     <Compile Include="Datastore\Fighters.cs" />
     <Compile Include="Datastore\LaunchAsset.cs" />
+    <Compile Include="Datastore\Ship.cs" />
+    <Compile Include="Datastore\ShipRules.cs" />
     <Compile Include="Datastore\Tonnage.cs" />
     <Compile Include="Datastore\TonnageClass.cs" />
     <Compile Include="Datastore\Torpedo.cs" />
+    <Compile Include="Datastore\User.cs" />
     <Compile Include="Datastore\Weapon.cs" />
+    <Compile Include="Datastore\WeaponFacing.cs" />
     <Compile Include="Datastore\WeaponRule.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
