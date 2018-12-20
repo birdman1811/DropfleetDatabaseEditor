@@ -1,6 +1,6 @@
-﻿namespace DropfleetDatabaseEditor
+﻿namespace DropfleetDatabaseEditor.Interface
 {
-    partial class Form1
+    partial class FactionMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FactionMenu
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.BackgroundImage = global::DropfleetDatabaseEditor.Properties.Resources.BOX_Cover_DROPFLEET_Commander_Final;
+            this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Name = "FactionMenu";
+            this.Text = "FactionMenu";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-
