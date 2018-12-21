@@ -79,5 +79,15 @@ namespace DropfleetDatabaseEditor.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap spaceships_illustration_8__WIP_flattened {
+            get {
+                object obj = ResourceManager.GetObject("spaceships_illustration_8__WIP_flattened", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

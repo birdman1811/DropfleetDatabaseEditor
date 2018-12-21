@@ -36,7 +36,10 @@ namespace DropfleetDatabaseEditor
                 {
                     Console.WriteLine("Access Granted");
                     Interface.MainMenu newScreen = new Interface.MainMenu();
-                    newScreen.Show();                    
+                    newScreen.Show();
+                    
+
+
                 }
                 else
                 {
@@ -53,6 +56,7 @@ namespace DropfleetDatabaseEditor
 
         }
 
+        
         
 
         private void AccessDeniedMessage()

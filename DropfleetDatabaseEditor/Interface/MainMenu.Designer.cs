@@ -66,6 +66,7 @@
             this.usersButton.TabIndex = 2;
             this.usersButton.Text = "Users";
             this.usersButton.UseVisualStyleBackColor = true;
+            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
             // 
             // shipsButton
             // 

@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace DropfleetDatabaseEditor.Interface
 {
-    public partial class MainMenu : Form
+    public partial class UsersMenu : Form
     {
-        public MainMenu()
+        public UsersMenu()
         {
             InitializeComponent();
         }
 
-        private void usersButton_Click(object sender, EventArgs e)
+        private void addUserButton_Click(object sender, EventArgs e)
         {
-            UsersMenu newScreen = new UsersMenu();
+            CreateUserForm newScreen = new CreateUserForm();
             newScreen.Show();
             this.Close();
         }

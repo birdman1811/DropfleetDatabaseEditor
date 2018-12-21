@@ -51,7 +51,7 @@ namespace DropfleetDatabaseEditor.Controllers
             {
                 cmd.Parameters.AddWithValue("@email", newUser.Email);
                 cmd.Parameters.AddWithValue("@hash", newUser.Hash);
-                cmd.Parameters.AddWithValue("@account", newUser.AccountType);
+                cmd.Parameters.AddWithValue("@account", 1);
 
                 int rows = cmd.ExecuteNonQuery();
             }
@@ -81,5 +81,24 @@ namespace DropfleetDatabaseEditor.Controllers
             connection.Close();
             return valid;
         }
+
+        public void UpdateUser(int userID, User newUserDetails)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("UPDATE Users SET email = @email, passHash = @passHash, accountType = @accountType " +
+                "WHERE accountID = @UserID", connection))
+            {
+                cmd.Parameters.AddWithValue("@email", newUserDetails.Email);
+                cmd.Parameters.AddWithValue("@passHash", newUserDetails.Hash);
+                cmd.Parameters.AddWithValue("@accountType", newUserDetails.AccountType.AccountTypeID);
+                cmd.Parameters.AddWithValue("@UserID", userID);
+
+                int rows = cmd.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+       
     }
 }
