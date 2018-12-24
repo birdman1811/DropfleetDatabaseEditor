@@ -66,9 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\DatabaseControl.cs" />
-    <Compile Include="Controllers\FactionContoller.cs" />
+    <Compile Include="Controllers\FactionController.cs" />
     <Compile Include="Controllers\UserAccessController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\WeaponController.cs" />
     <Compile Include="Datastore\AccountType.cs" />
     <Compile Include="Datastore\Admiral.cs" />
     <Compile Include="Datastore\BattleGroup.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Datastore\Weapon.cs" />
     <Compile Include="Datastore\WeaponFacing.cs" />
     <Compile Include="Datastore\WeaponRule.cs" />
+    <Compile Include="Datastore\WeaponRuleInstance.cs" />
     <Compile Include="Interface\CreateFactionForm.cs">
       <SubType>Form</SubType>
     </Compile>

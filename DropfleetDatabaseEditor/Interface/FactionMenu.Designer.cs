@@ -55,7 +55,7 @@
             this.mainMenuButton.TabIndex = 2;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
-            this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
+            this.mainMenuButton.Click += new System.EventHandler(this.MainMenuButton_Click);
             // 
             // editFactionButton
             // 
@@ -66,6 +66,7 @@
             this.editFactionButton.TabIndex = 1;
             this.editFactionButton.Text = "Edit Faction";
             this.editFactionButton.UseVisualStyleBackColor = true;
+            this.editFactionButton.Click += new System.EventHandler(this.EditFactionButton_Click);
             // 
             // createFactionButton
             // 
@@ -76,7 +77,7 @@
             this.createFactionButton.TabIndex = 0;
             this.createFactionButton.Text = "Create Faction";
             this.createFactionButton.UseVisualStyleBackColor = true;
-            this.createFactionButton.Click += new System.EventHandler(this.createFactionButton_Click);
+            this.createFactionButton.Click += new System.EventHandler(this.CreateFactionButton_Click);
             // 
             // FactionMenu
             // 

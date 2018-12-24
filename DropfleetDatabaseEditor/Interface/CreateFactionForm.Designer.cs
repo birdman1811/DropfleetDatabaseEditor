@@ -71,7 +71,7 @@
             this.mainMenuButton.TabIndex = 10;
             this.mainMenuButton.Text = "Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
-            this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
+            this.mainMenuButton.Click += new System.EventHandler(this.MainMenuButton_Click);
             // 
             // backButton
             // 
@@ -82,7 +82,7 @@
             this.backButton.TabIndex = 9;
             this.backButton.Text = "Faction Menu";
             this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.backButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // saveButton
             // 
@@ -93,7 +93,7 @@
             this.saveButton.TabIndex = 8;
             this.saveButton.Text = "Save Faction";
             this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // gameplayTextBox
             // 

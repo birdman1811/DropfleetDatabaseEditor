@@ -11,10 +11,7 @@ namespace DropfleetDatabaseEditor.Controllers
     class UserController
     {
         MySqlConnection connection;
-        private User user = new User();        
-        MySqlCommand command;
-        MySqlDataReader dataReader;
-        String sql = "";
+        private User user = new User();              
         DatabaseControl dBControl = new DatabaseControl();
 
         public User GetUser (string email)
@@ -33,9 +30,11 @@ namespace DropfleetDatabaseEditor.Controllers
                 {
                     user.UserID = dataReader.GetInt16(0);
                     user.Hash = dataReader.GetString(2);
-                    AccountType accountType = new AccountType();
-                    accountType.AccountTypeID = dataReader.GetInt16(3);
-                    
+                    AccountType accountType = new AccountType
+                    {
+                        AccountTypeID = dataReader.GetInt16(3)
+                    };
+
                 }
             }
             connection.Close();

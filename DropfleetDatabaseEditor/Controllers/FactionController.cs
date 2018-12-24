@@ -8,12 +8,10 @@ using MySql.Data.MySqlClient;
 
 namespace DropfleetDatabaseEditor.Controllers
 {
-    class FactionContoller
+    class FactionController
     {
 
-        MySqlConnection connection;
-        MySqlCommand command;
-        MySqlDataReader dataReader;
+        MySqlConnection connection;        
         DatabaseControl dBControl = new DatabaseControl();
 
         public List<Faction> GetAllFactions()
@@ -31,12 +29,14 @@ namespace DropfleetDatabaseEditor.Controllers
 
                 while (dataReader.Read())
                 {
-                    Faction newFaction = new Faction();
-                    newFaction.FactionID = dataReader.GetInt16(0);
-                    newFaction.Name = dataReader.GetString(1);
-                    newFaction.Icon = dataReader.GetString(2);
-                    newFaction.Lore = dataReader.GetString(3);
-                    newFaction.Gameplay = dataReader.GetString(4);
+                    Faction newFaction = new Faction
+                    {
+                        FactionID = dataReader.GetInt16(0),
+                        Name = dataReader.GetString(1),
+                        Icon = dataReader.GetString(2),
+                        Lore = dataReader.GetString(3),
+                        Gameplay = dataReader.GetString(4)
+                    };
 
                     factionList.Add(newFaction);
                 }
@@ -44,6 +44,25 @@ namespace DropfleetDatabaseEditor.Controllers
             connection.Close();
 
             return factionList;
+        }
+
+        public void UpdateFaction(Faction factionToUpdate)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("UPDATE Factions SET factionName = @name, factionIcon = @icon, factionLore = @lore, " +
+                "factionGameplay = @gameplay WHERE factionID = @id", connection))
+            {
+                cmd.Parameters.AddWithValue("@name", factionToUpdate.Name);
+                cmd.Parameters.AddWithValue("@icon", factionToUpdate.Icon);
+                cmd.Parameters.AddWithValue("@lore", factionToUpdate.Lore);
+                cmd.Parameters.AddWithValue("@gameplay", factionToUpdate.Gameplay);
+                cmd.Parameters.AddWithValue("@id", factionToUpdate.FactionID);
+
+                int rows = cmd.ExecuteNonQuery();
+            }
+            connection.Close();
         }
 
         public void AddFaction(Faction newFaction)

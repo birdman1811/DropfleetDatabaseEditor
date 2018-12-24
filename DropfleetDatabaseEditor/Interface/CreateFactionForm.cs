@@ -16,34 +16,36 @@ namespace DropfleetDatabaseEditor.Interface
     public partial class CreateFactionForm : Form
     {
 
-        FactionContoller factionControl = new FactionContoller();
+        FactionController factionControl = new FactionController();
 
         public CreateFactionForm()
         {
             InitializeComponent();
         }
 
-        private void mainMenuButton_Click(object sender, EventArgs e)
+        private void MainMenuButton_Click(object sender, EventArgs e)
         {
             MainMenu newScreen = new MainMenu();
             newScreen.Show();
             this.Close();
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void BackButton_Click(object sender, EventArgs e)
         {
             FactionMenu newScreen = new FactionMenu();
             newScreen.Show();
             this.Close();
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object sender, EventArgs e)
         {
-            Faction newFaction = new Faction();
-            newFaction.Name = nameTextBox.Text;
-            newFaction.Icon = IconTextBox.Text;
-            newFaction.Lore = loreTextBox.Text;
-            newFaction.Gameplay = gameplayTextBox.Text;
+            Faction newFaction = new Faction
+            {
+                Name = nameTextBox.Text,
+                Icon = IconTextBox.Text,
+                Lore = loreTextBox.Text,
+                Gameplay = gameplayTextBox.Text
+            };
 
 
             factionControl.AddFaction(newFaction);
