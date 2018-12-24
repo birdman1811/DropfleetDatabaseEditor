@@ -16,5 +16,19 @@ namespace DropfleetDatabaseEditor.Interface
         {
             InitializeComponent();
         }
+
+        private void mainMenuButton_Click(object sender, EventArgs e)
+        {
+            MainMenu newScreen = new MainMenu();
+            newScreen.Show();
+            this.Close();
+        }
+
+        private void createFactionButton_Click(object sender, EventArgs e)
+        {
+            CreateFactionForm newScreen = new CreateFactionForm();
+            newScreen.Show();
+            this.Close();
+        }
     }
 }

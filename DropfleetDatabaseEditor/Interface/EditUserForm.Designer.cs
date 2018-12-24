@@ -38,12 +38,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
+            this.mainMenuButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.mainMenuButton);
+            this.panel1.Controls.Add(this.backButton);
             this.panel1.Controls.Add(this.updateUserButton);
             this.panel1.Controls.Add(this.confirmNewPasswordTextBox);
             this.panel1.Controls.Add(this.label4);
@@ -53,14 +57,15 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.userNameTextBox);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(349, 125);
+            this.panel1.Location = new System.Drawing.Point(350, 69);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(341, 446);
+            this.panel1.Size = new System.Drawing.Size(341, 515);
             this.panel1.TabIndex = 0;
             // 
             // updateUserButton
             // 
-            this.updateUserButton.Location = new System.Drawing.Point(95, 366);
+            this.updateUserButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateUserButton.Location = new System.Drawing.Point(107, 368);
             this.updateUserButton.Name = "updateUserButton";
             this.updateUserButton.Size = new System.Drawing.Size(145, 53);
             this.updateUserButton.TabIndex = 8;
@@ -72,6 +77,7 @@
             // 
             this.confirmNewPasswordTextBox.Location = new System.Drawing.Point(31, 327);
             this.confirmNewPasswordTextBox.Name = "confirmNewPasswordTextBox";
+            this.confirmNewPasswordTextBox.PasswordChar = '*';
             this.confirmNewPasswordTextBox.Size = new System.Drawing.Size(221, 20);
             this.confirmNewPasswordTextBox.TabIndex = 7;
             // 
@@ -90,6 +96,7 @@
             // 
             this.newPasswordTextBox.Location = new System.Drawing.Point(30, 238);
             this.newPasswordTextBox.Name = "newPasswordTextBox";
+            this.newPasswordTextBox.PasswordChar = '*';
             this.newPasswordTextBox.Size = new System.Drawing.Size(222, 20);
             this.newPasswordTextBox.TabIndex = 5;
             // 
@@ -108,6 +115,7 @@
             // 
             this.existingPasswordTextBox.Location = new System.Drawing.Point(29, 150);
             this.existingPasswordTextBox.Name = "existingPasswordTextBox";
+            this.existingPasswordTextBox.PasswordChar = '*';
             this.existingPasswordTextBox.Size = new System.Drawing.Size(223, 20);
             this.existingPasswordTextBox.TabIndex = 3;
             // 
@@ -140,6 +148,28 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
             // 
+            // backButton
+            // 
+            this.backButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Location = new System.Drawing.Point(25, 438);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(145, 53);
+            this.backButton.TabIndex = 9;
+            this.backButton.Text = "User Menu";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // mainMenuButton
+            // 
+            this.mainMenuButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainMenuButton.Location = new System.Drawing.Point(176, 438);
+            this.mainMenuButton.Name = "mainMenuButton";
+            this.mainMenuButton.Size = new System.Drawing.Size(145, 53);
+            this.mainMenuButton.TabIndex = 10;
+            this.mainMenuButton.Text = "Main Menu";
+            this.mainMenuButton.UseVisualStyleBackColor = true;
+            this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
+            // 
             // EditUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,5 +197,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox existingPasswordTextBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button mainMenuButton;
+        private System.Windows.Forms.Button backButton;
     }
 }

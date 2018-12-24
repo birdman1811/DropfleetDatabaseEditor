@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\DatabaseControl.cs" />
+    <Compile Include="Controllers\FactionContoller.cs" />
     <Compile Include="Controllers\UserAccessController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Datastore\AccountType.cs" />
@@ -85,11 +86,23 @@
     <Compile Include="Datastore\Weapon.cs" />
     <Compile Include="Datastore\WeaponFacing.cs" />
     <Compile Include="Datastore\WeaponRule.cs" />
+    <Compile Include="Interface\CreateFactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\CreateFactionForm.Designer.cs">
+      <DependentUpon>CreateFactionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\CreateUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interface\CreateUserForm.Designer.cs">
       <DependentUpon>CreateUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\EditFactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\EditFactionForm.Designer.cs">
+      <DependentUpon>EditFactionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interface\FactionMenu.cs">
       <SubType>Form</SubType>
@@ -123,8 +136,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Interface\CreateFactionForm.resx">
+      <DependentUpon>CreateFactionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interface\CreateUserForm.resx">
       <DependentUpon>CreateUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\EditFactionForm.resx">
+      <DependentUpon>EditFactionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\EditUserForm.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>
@@ -169,6 +188,7 @@
   <ItemGroup>
     <Content Include="Properties\BOX Cover DROPFLEET Commander Final.jpg" />
     <Content Include="Properties\DFC-logo-colour-whiteBG.png" />
+    <None Include="Properties\spaceships abandonned space station ultimate finale.jpg" />
     <None Include="Properties\spaceships illustration 8, WIP.flattened.jpg" />
     <None Include="Resources\Dropfleet Box Image.bmp" />
   </ItemGroup>

@@ -92,7 +92,7 @@ namespace DropfleetDatabaseEditor.Controllers
             {
                 cmd.Parameters.AddWithValue("@email", newUserDetails.Email);
                 cmd.Parameters.AddWithValue("@passHash", newUserDetails.Hash);
-                cmd.Parameters.AddWithValue("@accountType", newUserDetails.AccountType.AccountTypeID);
+                cmd.Parameters.AddWithValue("@accountType", 1);
                 cmd.Parameters.AddWithValue("@UserID", userID);
 
                 int rows = cmd.ExecuteNonQuery();

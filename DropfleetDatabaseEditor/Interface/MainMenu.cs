@@ -23,5 +23,12 @@ namespace DropfleetDatabaseEditor.Interface
             newScreen.Show();
             this.Close();
         }
+
+        private void factionControlButton_Click(object sender, EventArgs e)
+        {
+            FactionMenu newScreen = new FactionMenu();
+            newScreen.Show();
+            this.Close();
+        }
     }
 }

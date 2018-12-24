@@ -77,5 +77,11 @@ namespace DropfleetDatabaseEditor.Interface
             return passwordsMatch;
         }
 
+        private void userMenuButton_Click(object sender, EventArgs e)
+        {
+            UsersMenu newScreen = new UsersMenu();
+            newScreen.Show();
+            this.Close();
+        }
     }
 }

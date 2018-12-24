@@ -83,6 +83,16 @@ namespace DropfleetDatabaseEditor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap spaceships_abandonned_space_station_ultimate_finale {
+            get {
+                object obj = ResourceManager.GetObject("spaceships_abandonned_space_station_ultimate_finale", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap spaceships_illustration_8__WIP_flattened {
             get {
                 object obj = ResourceManager.GetObject("spaceships_illustration_8__WIP_flattened", resourceCulture);

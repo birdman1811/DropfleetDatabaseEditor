@@ -66,5 +66,29 @@ namespace DropfleetDatabaseEditor.Controllers
 
             userController.InsertUser(newUser);
         }
+
+        public void EditUser(User userToEdit, string password)
+        {
+            /* Create Salt*/
+            byte[] salt;
+            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+
+            /* hash and salt password*/
+            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 10000);
+
+            /* Convert to string*/
+            byte[] hash = pbkdf2.GetBytes(20);
+
+            byte[] hashbytes = new byte[36];
+
+            Array.Copy(salt, 0, hashbytes, 0, 16);
+            Array.Copy(hash, 0, hashbytes, 16, 20);
+
+            string savedPasswordHash = Convert.ToBase64String(hashbytes);
+
+            userToEdit.Hash = savedPasswordHash;
+
+            userController.UpdateUser(userToEdit.UserID, userToEdit);
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace DropfleetDatabaseEditor.Interface
     {
 
         UserController userController = new UserController();
+        UserAccessController accessControl = new UserAccessController();
 
         public EditUserForm()
         {
@@ -31,6 +32,7 @@ namespace DropfleetDatabaseEditor.Interface
             {
                 Thread errorThread = new Thread(EmailNotValid);
                 errorThread.Start();
+                userNameTextBox.Clear();
             }
             else
             {
@@ -61,17 +63,61 @@ namespace DropfleetDatabaseEditor.Interface
             else
             {
                 Thread errorThread = new Thread(PasswordsDontMatch);
+                errorThread.Start();
+                newPasswordTextBox.Clear();
+                confirmNewPasswordTextBox.Clear();
             }
         }
 
         private void PasswordsDontMatch()
         {
+            MessageBox.Show("Passwords Don't match, please try again.", "New Passwords Don't Match", MessageBoxButtons.OK, MessageBoxIcon.Hand);
 
         }
 
         private void GetExistingUser(User userToEdit)
         {
+            User oldDetails = userController.GetUser(userToEdit.Email);
+            oldDetails.Email = userToEdit.Email;
+            bool userValidated = accessControl.GrantAccess(oldDetails, existingPasswordTextBox.Text);
+            if (userValidated == false)
+            {
+                Thread errorThread = new Thread(WrongPassword);
+                errorThread.Start();
+            }
 
+            else
+            {
+                ChangePassword(oldDetails);
+            }
+        }
+
+        private void WrongPassword()
+        {
+            MessageBox.Show("Wrong User Password, please re-enter password.", "Wrong Password", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+        }
+
+        private void ChangePassword(User userToEdit) 
+        {
+            accessControl.EditUser(userToEdit, newPasswordTextBox.Text);
+            userNameTextBox.Clear();
+            existingPasswordTextBox.Clear();
+            newPasswordTextBox.Clear();
+            confirmNewPasswordTextBox.Clear();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            UsersMenu newScreen = new UsersMenu();
+            newScreen.Show();
+            this.Close();
+        }
+
+        private void mainMenuButton_Click(object sender, EventArgs e)
+        {
+            MainMenu newScreen = new MainMenu();
+            newScreen.Show();
+            this.Close();
         }
     }
 }

@@ -30,6 +30,8 @@
         {
             this.addUserButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.editUserButton = new System.Windows.Forms.Button();
+            this.mainMenuButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,11 +49,35 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.mainMenuButton);
+            this.panel1.Controls.Add(this.editUserButton);
             this.panel1.Controls.Add(this.addUserButton);
             this.panel1.Location = new System.Drawing.Point(373, 142);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(294, 426);
             this.panel1.TabIndex = 1;
+            // 
+            // editUserButton
+            // 
+            this.editUserButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editUserButton.Location = new System.Drawing.Point(50, 176);
+            this.editUserButton.Name = "editUserButton";
+            this.editUserButton.Size = new System.Drawing.Size(192, 89);
+            this.editUserButton.TabIndex = 1;
+            this.editUserButton.Text = "Edit User";
+            this.editUserButton.UseVisualStyleBackColor = true;
+            this.editUserButton.Click += new System.EventHandler(this.editUserButton_Click);
+            // 
+            // mainMenuButton
+            // 
+            this.mainMenuButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainMenuButton.Location = new System.Drawing.Point(50, 298);
+            this.mainMenuButton.Name = "mainMenuButton";
+            this.mainMenuButton.Size = new System.Drawing.Size(192, 89);
+            this.mainMenuButton.TabIndex = 2;
+            this.mainMenuButton.Text = "Main Menu";
+            this.mainMenuButton.UseVisualStyleBackColor = true;
+            this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
             // 
             // UsersMenu
             // 
@@ -71,5 +97,7 @@
 
         private System.Windows.Forms.Button addUserButton;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button editUserButton;
+        private System.Windows.Forms.Button mainMenuButton;
     }
 }

@@ -56,6 +56,7 @@
             this.factionControlButton.TabIndex = 1;
             this.factionControlButton.Text = "Factions";
             this.factionControlButton.UseVisualStyleBackColor = true;
+            this.factionControlButton.Click += new System.EventHandler(this.factionControlButton_Click);
             // 
             // usersButton
             // 
