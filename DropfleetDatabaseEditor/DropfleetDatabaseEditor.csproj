@@ -88,6 +88,12 @@
     <Compile Include="Datastore\WeaponFacing.cs" />
     <Compile Include="Datastore\WeaponRule.cs" />
     <Compile Include="Datastore\WeaponRuleInstance.cs" />
+    <Compile Include="Interface\AddWeaponForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\AddWeaponForm.Designer.cs">
+      <DependentUpon>AddWeaponForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\CreateFactionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,14 +136,35 @@
     <Compile Include="Interface\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\ShipControlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\ShipControlForm.Designer.cs">
+      <DependentUpon>ShipControlForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\UsersMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interface\UsersMenu.Designer.cs">
       <DependentUpon>UsersMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\WeaponControlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\WeaponControlForm.Designer.cs">
+      <DependentUpon>WeaponControlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\WeaponRulesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\WeaponRulesForm.Designer.cs">
+      <DependentUpon>WeaponRulesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Interface\AddWeaponForm.resx">
+      <DependentUpon>AddWeaponForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interface\CreateFactionForm.resx">
       <DependentUpon>CreateFactionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,8 +186,17 @@
     <EmbeddedResource Include="Interface\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interface\ShipControlForm.resx">
+      <DependentUpon>ShipControlForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interface\UsersMenu.resx">
       <DependentUpon>UsersMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\WeaponControlForm.resx">
+      <DependentUpon>WeaponControlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\WeaponRulesForm.resx">
+      <DependentUpon>WeaponRulesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -188,6 +224,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Properties\Battle of Vega BG Wip 9 %28chromatic%29 - Copy.jpg" />
     <Content Include="Properties\BOX Cover DROPFLEET Commander Final.jpg" />
     <Content Include="Properties\DFC-logo-colour-whiteBG.png" />
     <None Include="Properties\spaceships abandonned space station ultimate finale.jpg" />

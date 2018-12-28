@@ -78,6 +78,7 @@
             this.shipsButton.TabIndex = 3;
             this.shipsButton.Text = "Ships";
             this.shipsButton.UseVisualStyleBackColor = true;
+            this.shipsButton.Click += new System.EventHandler(this.shipsButton_Click);
             // 
             // miscellaneousButton
             // 

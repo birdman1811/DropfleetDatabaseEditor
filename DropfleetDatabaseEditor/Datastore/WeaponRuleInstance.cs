@@ -20,5 +20,22 @@ namespace DropfleetDatabaseEditor.Datastore
             
         }
         public int Amount { get => amount; set => amount = value; }
+
+        public string fullString
+        {
+            get
+            {
+                if (this.Amount > 0)
+                {
+                    return Rule + " (" + Amount + ")";
+                }
+                else
+                {
+                    return Rule;
+                }
+            }
+
+            
+        }
     }
 }

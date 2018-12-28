@@ -63,6 +63,16 @@ namespace DropfleetDatabaseEditor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Battle_of_Vega_BG_Wip_9__chromatic____Copy {
+            get {
+                object obj = ResourceManager.GetObject("Battle_of_Vega_BG_Wip_9__chromatic____Copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BOX_Cover_DROPFLEET_Commander_Final {
             get {
                 object obj = ResourceManager.GetObject("BOX_Cover_DROPFLEET_Commander_Final", resourceCulture);
