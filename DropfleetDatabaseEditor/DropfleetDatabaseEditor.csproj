@@ -149,6 +149,12 @@
     <Compile Include="Interface\ShipControlForm.Designer.cs">
       <DependentUpon>ShipControlForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\TonnageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\TonnageForm.Designer.cs">
+      <DependentUpon>TonnageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\UsersMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\ShipControlForm.resx">
       <DependentUpon>ShipControlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\TonnageForm.resx">
+      <DependentUpon>TonnageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\UsersMenu.resx">
       <DependentUpon>UsersMenu.cs</DependentUpon>

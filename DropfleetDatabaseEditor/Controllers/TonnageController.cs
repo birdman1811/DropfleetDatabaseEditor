@@ -107,9 +107,10 @@ namespace DropfleetDatabaseEditor.Controllers
                         }
                     };
                     newTonnage.TonnageClass.ClassName = GetClassName(newTonnage.TonnageClass.ClassID);
+                    tonnageList.Add(newTonnage);
                 }
             }
-            connection.Close();
+            connection.Close();            
 
             return tonnageList;
         }

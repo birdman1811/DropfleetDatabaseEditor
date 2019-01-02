@@ -68,7 +68,7 @@
             this.editExistingButton.TabIndex = 1;
             this.editExistingButton.Text = "Edit";
             this.editExistingButton.UseVisualStyleBackColor = true;
-            this.editExistingButton.Click += new System.EventHandler(this.editExistingButton_Click);
+            this.editExistingButton.Click += new System.EventHandler(this.EditExistingButton_Click);
             // 
             // createNewButton
             // 
@@ -79,7 +79,7 @@
             this.createNewButton.TabIndex = 0;
             this.createNewButton.Text = "Create";
             this.createNewButton.UseVisualStyleBackColor = true;
-            this.createNewButton.Click += new System.EventHandler(this.createNewButton_Click);
+            this.createNewButton.Click += new System.EventHandler(this.CreateNewButton_Click);
             // 
             // createNewPanel
             // 
@@ -102,7 +102,7 @@
             this.addRuleButton.TabIndex = 2;
             this.addRuleButton.Text = "Add New Rule";
             this.addRuleButton.UseVisualStyleBackColor = true;
-            this.addRuleButton.Click += new System.EventHandler(this.addRuleButton_Click);
+            this.addRuleButton.Click += new System.EventHandler(this.AddRuleButton_Click);
             // 
             // label1
             // 
@@ -142,7 +142,7 @@
             this.ruleComboBox.Name = "ruleComboBox";
             this.ruleComboBox.Size = new System.Drawing.Size(172, 21);
             this.ruleComboBox.TabIndex = 0;
-            this.ruleComboBox.SelectedIndexChanged += new System.EventHandler(this.ruleComboBox_SelectedIndexChanged);
+            this.ruleComboBox.SelectedIndexChanged += new System.EventHandler(this.RuleComboBox_SelectedIndexChanged);
             // 
             // editRuleButton
             // 
@@ -153,7 +153,7 @@
             this.editRuleButton.TabIndex = 5;
             this.editRuleButton.Text = "Edit Rule";
             this.editRuleButton.UseVisualStyleBackColor = true;
-            this.editRuleButton.Click += new System.EventHandler(this.editRuleButton_Click);
+            this.editRuleButton.Click += new System.EventHandler(this.EditRuleButton_Click);
             // 
             // label2
             // 
@@ -192,7 +192,7 @@
             this.weaponScreenButton.TabIndex = 0;
             this.weaponScreenButton.Text = "Back to Weapons Screen";
             this.weaponScreenButton.UseVisualStyleBackColor = true;
-            this.weaponScreenButton.Click += new System.EventHandler(this.weaponScreenButton_Click);
+            this.weaponScreenButton.Click += new System.EventHandler(this.WeaponScreenButton_Click);
             // 
             // mainMenuButton
             // 
@@ -203,7 +203,7 @@
             this.mainMenuButton.TabIndex = 1;
             this.mainMenuButton.Text = "Back to Main Menu";
             this.mainMenuButton.UseVisualStyleBackColor = true;
-            this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButton_Click);
+            this.mainMenuButton.Click += new System.EventHandler(this.MainMenuButton_Click);
             // 
             // WeaponRulesForm
             // 

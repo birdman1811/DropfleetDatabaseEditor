@@ -24,16 +24,18 @@ namespace DropfleetDatabaseEditor.Interface
             InitializeComponent();
         }
 
-        private void createNewButton_Click(object sender, EventArgs e)
+        private void CreateNewButton_Click(object sender, EventArgs e)
         {
             createNewPanel.Visible = true;
             editExistinPanel.Visible = false;
         }
 
-        private void addRuleButton_Click(object sender, EventArgs e)
+        private void AddRuleButton_Click(object sender, EventArgs e)
         {
-            WeaponRule newRule = new WeaponRule();
-            newRule.Rule = newRuleText.Text;
+            WeaponRule newRule = new WeaponRule
+            {
+                Rule = newRuleText.Text
+            };
             weaponControl.InsertWeaponRule(newRule);
             newRuleText.Clear();
             Thread addedToDBThread = new Thread(AddedMessage);
@@ -45,7 +47,7 @@ namespace DropfleetDatabaseEditor.Interface
             MessageBox.Show("Item Succesfully Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void editExistingButton_Click(object sender, EventArgs e)
+        private void EditExistingButton_Click(object sender, EventArgs e)
         {
             createNewPanel.Visible = false;
             editExistinPanel.Visible = true;
@@ -54,13 +56,13 @@ namespace DropfleetDatabaseEditor.Interface
             ruleComboBox.DisplayMember = "Rule";
         }
 
-        private void ruleComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void RuleComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedRule = (WeaponRule)ruleComboBox.SelectedItem;
             editRuleTextBox.Text = selectedRule.Rule;
         }
 
-        private void editRuleButton_Click(object sender, EventArgs e)
+        private void EditRuleButton_Click(object sender, EventArgs e)
         {
             WeaponRule editRule = selectedRule;
             editRule.Rule = editRuleTextBox.Text;
@@ -78,14 +80,14 @@ namespace DropfleetDatabaseEditor.Interface
             MessageBox.Show("Item Succesfully Updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void weaponScreenButton_Click(object sender, EventArgs e)
+        private void WeaponScreenButton_Click(object sender, EventArgs e)
         {
             WeaponControlForm newScreen = new WeaponControlForm();
             newScreen.Show();
             this.Close();
         }
 
-        private void mainMenuButton_Click(object sender, EventArgs e)
+        private void MainMenuButton_Click(object sender, EventArgs e)
         {
             MainMenu newScreen = new MainMenu();
             newScreen.Show();

@@ -30,12 +30,14 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.weaponsControlButton = new System.Windows.Forms.Button();
+            this.tonnageButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.tonnageButton);
             this.panel1.Controls.Add(this.weaponsControlButton);
             this.panel1.Location = new System.Drawing.Point(162, 135);
             this.panel1.Name = "panel1";
@@ -51,7 +53,18 @@
             this.weaponsControlButton.TabIndex = 0;
             this.weaponsControlButton.Text = "Weapons";
             this.weaponsControlButton.UseVisualStyleBackColor = true;
-            this.weaponsControlButton.Click += new System.EventHandler(this.weaponsControlButton_Click);
+            this.weaponsControlButton.Click += new System.EventHandler(this.WeaponsControlButton_Click);
+            // 
+            // tonnageButton
+            // 
+            this.tonnageButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tonnageButton.Location = new System.Drawing.Point(271, 134);
+            this.tonnageButton.Name = "tonnageButton";
+            this.tonnageButton.Size = new System.Drawing.Size(112, 60);
+            this.tonnageButton.TabIndex = 1;
+            this.tonnageButton.Text = "Tonnage";
+            this.tonnageButton.UseVisualStyleBackColor = true;
+            this.tonnageButton.Click += new System.EventHandler(this.TonnageButton_Click);
             // 
             // ShipControlForm
             // 
@@ -71,5 +84,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button weaponsControlButton;
+        private System.Windows.Forms.Button tonnageButton;
     }
 }

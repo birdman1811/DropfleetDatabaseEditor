@@ -17,11 +17,18 @@ namespace DropfleetDatabaseEditor.Interface
             InitializeComponent();
         }
 
-        private void weaponsControlButton_Click(object sender, EventArgs e)
+        private void WeaponsControlButton_Click(object sender, EventArgs e)
         {
             WeaponControlForm newScreen = new WeaponControlForm();
             newScreen.Show();
             this.Close();
+        }
+
+        private void TonnageButton_Click(object sender, EventArgs e)
+        {
+            TonnageForm newScreen = new TonnageForm();
+            newScreen.Show();
+            Close();
         }
     }
 }
