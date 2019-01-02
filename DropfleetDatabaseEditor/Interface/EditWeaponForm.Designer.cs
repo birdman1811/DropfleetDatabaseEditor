@@ -58,6 +58,7 @@
             this.ruleAmountSelect = new System.Windows.Forms.NumericUpDown();
             this.weaponRuleComboBox = new System.Windows.Forms.ComboBox();
             this.specialRulesListBox = new System.Windows.Forms.ListBox();
+            this.editCompleteButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.weaponStatsPanel.SuspendLayout();
@@ -306,6 +307,7 @@
             // weaponRulesPanel
             // 
             this.weaponRulesPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.weaponRulesPanel.Controls.Add(this.editCompleteButton);
             this.weaponRulesPanel.Controls.Add(this.deleteRuleButton);
             this.weaponRulesPanel.Controls.Add(this.updateRuleAmountButton);
             this.weaponRulesPanel.Controls.Add(this.editRuleAmountSelector);
@@ -327,6 +329,7 @@
             this.deleteRuleButton.TabIndex = 23;
             this.deleteRuleButton.Text = "Delete Rule";
             this.deleteRuleButton.UseVisualStyleBackColor = true;
+            this.deleteRuleButton.Click += new System.EventHandler(this.deleteRuleButton_Click);
             // 
             // updateRuleAmountButton
             // 
@@ -336,6 +339,7 @@
             this.updateRuleAmountButton.TabIndex = 22;
             this.updateRuleAmountButton.Text = "Update Rule Amount";
             this.updateRuleAmountButton.UseVisualStyleBackColor = true;
+            this.updateRuleAmountButton.Click += new System.EventHandler(this.updateRuleAmountButton_Click);
             // 
             // editRuleAmountSelector
             // 
@@ -376,6 +380,17 @@
             this.specialRulesListBox.Name = "specialRulesListBox";
             this.specialRulesListBox.Size = new System.Drawing.Size(120, 95);
             this.specialRulesListBox.TabIndex = 17;
+            // 
+            // editCompleteButton
+            // 
+            this.editCompleteButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editCompleteButton.Location = new System.Drawing.Point(145, 280);
+            this.editCompleteButton.Name = "editCompleteButton";
+            this.editCompleteButton.Size = new System.Drawing.Size(119, 92);
+            this.editCompleteButton.TabIndex = 24;
+            this.editCompleteButton.Text = "Weapon Edit Complete";
+            this.editCompleteButton.UseVisualStyleBackColor = true;
+            this.editCompleteButton.Click += new System.EventHandler(this.editCompleteButton_Click);
             // 
             // EditWeaponForm
             // 
@@ -435,5 +450,6 @@
         private System.Windows.Forms.NumericUpDown ruleAmountSelect;
         private System.Windows.Forms.ComboBox weaponRuleComboBox;
         private System.Windows.Forms.ListBox specialRulesListBox;
+        private System.Windows.Forms.Button editCompleteButton;
     }
 }

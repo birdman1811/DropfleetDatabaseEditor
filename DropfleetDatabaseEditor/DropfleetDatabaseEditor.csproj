@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Controllers\DatabaseControl.cs" />
     <Compile Include="Controllers\FactionController.cs" />
+    <Compile Include="Controllers\TonnageController.cs" />
     <Compile Include="Controllers\UserAccessController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WeaponController.cs" />

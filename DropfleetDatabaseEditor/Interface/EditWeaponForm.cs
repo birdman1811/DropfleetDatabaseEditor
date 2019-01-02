@@ -162,5 +162,37 @@ namespace DropfleetDatabaseEditor.Interface
             weaponControl.InsertWeaponRuleInstance(editWeapon.WeaponID, newRuleInstance);
 
         }
+
+        private void updateRuleAmountButton_Click(object sender, EventArgs e)
+        {
+            WeaponRuleInstance editRuleInstance = (WeaponRuleInstance)specialRulesListBox.SelectedItem;
+            editWeapon.RemoveRule((WeaponRuleInstance)specialRulesListBox.SelectedItem);
+            editRuleInstance.Amount = (int)editRuleAmountSelector.Value;
+            specialRulesListBox.DataSource = null;
+            specialRulesListBox.DataSource = editWeapon.Rules;
+            specialRulesListBox.DisplayMember = "fullString";
+            editWeapon.AddRule(editRuleInstance);
+            specialRulesListBox.DataSource = null;
+            specialRulesListBox.DataSource = editWeapon.Rules;
+            specialRulesListBox.DisplayMember = "fullString";
+            weaponControl.UpdateWeaponRuleInstance(editRuleInstance, editWeapon.WeaponID);
+        }
+
+        private void deleteRuleButton_Click(object sender, EventArgs e)
+        {
+            WeaponRuleInstance DeletedRule = (WeaponRuleInstance)specialRulesListBox.SelectedItem;
+            editWeapon.RemoveRule(DeletedRule);
+            specialRulesListBox.DataSource = null;
+            specialRulesListBox.DataSource = editWeapon.Rules;
+            specialRulesListBox.DisplayMember = "fullString";
+            weaponControl.DeleteWeaponRuleInstance(DeletedRule, editWeapon.WeaponID);
+        }
+
+        private void editCompleteButton_Click(object sender, EventArgs e)
+        {
+            Thread updatedMessageThread = new Thread(WeaponUpdatedMessage);
+            updatedMessageThread.Start();
+            weaponRulesPanel.Visible = false;
+        }
     }
 }

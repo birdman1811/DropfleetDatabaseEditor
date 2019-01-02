@@ -147,7 +147,7 @@ namespace DropfleetDatabaseEditor.Controllers
             connection = dBControl.GetConnection();
             connection.Open();
 
-            using (MySqlCommand cmd = new MySqlCommand("UPDATE WeaponSpecialRuleInstances SET amount = @amount WHERE weapon = @weaponID, " +
+            using (MySqlCommand cmd = new MySqlCommand("UPDATE WeaponSpecialRuleInstance SET amount = @amount WHERE weapon = @weaponID AND " +
                 "rule = @ruleID", connection))
             {
                 cmd.Parameters.AddWithValue("@amount", rule.Amount);
