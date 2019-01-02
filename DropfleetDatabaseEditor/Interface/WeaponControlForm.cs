@@ -30,5 +30,12 @@ namespace DropfleetDatabaseEditor.Interface
             newScreen.Show();
             this.Close();
         }
+
+        private void editWeaponsButton_Click(object sender, EventArgs e)
+        {
+            EditWeaponForm newScreen = new EditWeaponForm();
+            newScreen.Show();
+            this.Close();
+        }
     }
 }

@@ -88,10 +88,12 @@ namespace DropfleetDatabaseEditor.Interface
             newWeapon.Damage = (int)damageSelect.Value;
         }
 
-        private void addRuleButton_Click(object sender, EventArgs e)
+        private void AddRuleButton_Click(object sender, EventArgs e)
         {
-            WeaponRuleInstance newRuleInstance = new WeaponRuleInstance();
-            newRuleInstance.Amount = (int)ruleAmountSelect.Value;
+            WeaponRuleInstance newRuleInstance = new WeaponRuleInstance
+            {
+                Amount = (int)ruleAmountSelect.Value
+            };
             WeaponRule selectedRule = (WeaponRule)weaponRuleComboBox.SelectedItem;
             newRuleInstance.RuleID = selectedRule.RuleID;
             newRuleInstance.Rule = selectedRule.Rule;
@@ -102,7 +104,7 @@ namespace DropfleetDatabaseEditor.Interface
             ruleAmountSelect.Value = 0;
         }
 
-        private void updateRuleAmountButton_Click(object sender, EventArgs e)
+        private void UpdateRuleAmountButton_Click(object sender, EventArgs e)
         {
             WeaponRuleInstance editRuleInstance = (WeaponRuleInstance)specialRulesListBox.SelectedItem;
             newWeapon.RemoveRule((WeaponRuleInstance)specialRulesListBox.SelectedItem);
@@ -116,7 +118,7 @@ namespace DropfleetDatabaseEditor.Interface
             specialRulesListBox.DisplayMember = "fullString";
         }
 
-        private void deleteRuleButton_Click(object sender, EventArgs e)
+        private void DeleteRuleButton_Click(object sender, EventArgs e)
         {
             WeaponRuleInstance DeletedRule = (WeaponRuleInstance)specialRulesListBox.SelectedItem;
             newWeapon.RemoveRule(DeletedRule);
@@ -128,6 +130,26 @@ namespace DropfleetDatabaseEditor.Interface
         private void AttackTextBox_TextChanged(object sender, EventArgs e)
         {
             newWeapon.Attack = AttackTextBox.Text;
+        }
+
+        private void editRuleAmountSelector_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void specialRulesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ruleAmountSelect_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void weaponRuleComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

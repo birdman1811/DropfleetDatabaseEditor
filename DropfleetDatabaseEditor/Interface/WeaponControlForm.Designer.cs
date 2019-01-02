@@ -31,12 +31,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.addWeapons = new System.Windows.Forms.Button();
             this.weaponRulesButton = new System.Windows.Forms.Button();
+            this.editWeaponsButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.editWeaponsButton);
             this.panel1.Controls.Add(this.addWeapons);
             this.panel1.Controls.Add(this.weaponRulesButton);
             this.panel1.Location = new System.Drawing.Point(123, 128);
@@ -66,6 +68,17 @@
             this.weaponRulesButton.UseVisualStyleBackColor = true;
             this.weaponRulesButton.Click += new System.EventHandler(this.WeaponRulesButton_Click);
             // 
+            // editWeaponsButton
+            // 
+            this.editWeaponsButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editWeaponsButton.Location = new System.Drawing.Point(421, 99);
+            this.editWeaponsButton.Name = "editWeaponsButton";
+            this.editWeaponsButton.Size = new System.Drawing.Size(125, 70);
+            this.editWeaponsButton.TabIndex = 2;
+            this.editWeaponsButton.Text = "Edit Weapons";
+            this.editWeaponsButton.UseVisualStyleBackColor = true;
+            this.editWeaponsButton.Click += new System.EventHandler(this.editWeaponsButton_Click);
+            // 
             // WeaponControlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -85,5 +98,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button weaponRulesButton;
         private System.Windows.Forms.Button addWeapons;
+        private System.Windows.Forms.Button editWeaponsButton;
     }
 }

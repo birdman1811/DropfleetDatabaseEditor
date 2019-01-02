@@ -22,7 +22,7 @@ namespace DropfleetDatabaseEditor.Controllers
             MySqlDataReader dataReader;
             connection.Open();
 
-            using (MySqlCommand cmd = new MySqlCommand("SELECT * from Weapons where faction = @faction"))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * from Weapons where faction = @faction", connection))
             {
                 cmd.Parameters.AddWithValue("@faction", faction.FactionID);
 
@@ -83,9 +83,27 @@ namespace DropfleetDatabaseEditor.Controllers
                 insertRuleInstanceThread.Start();
 
               
-            }
+            }            
+        }
 
-            
+        public void UpdateWeapon(Weapon weapon)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("UPDATE Weapons SET faction = @faction, name = @name, lockValue = @lockValue, attack = @attack, " +
+                "damage = @damage WHERE weaponID = @weaponID ", connection))
+            {
+                cmd.Parameters.AddWithValue("@faction", weapon.Faction.FactionID);
+                cmd.Parameters.AddWithValue("@name", weapon.Name);
+                cmd.Parameters.AddWithValue("@lockValue", weapon.LockValue);
+                cmd.Parameters.AddWithValue("@attack", weapon.Attack);
+                cmd.Parameters.AddWithValue("@damage", weapon.Damage);
+                cmd.Parameters.AddWithValue("@weaponID", weapon.WeaponID);
+
+                int rows = cmd.ExecuteNonQuery();
+            }
+            connection.Close();
         }
 
         public void InsertWeaponRuleInstance(int weaponID, WeaponRuleInstance rule)
@@ -106,14 +124,50 @@ namespace DropfleetDatabaseEditor.Controllers
             connection.Close();
         }
 
+        public void DeleteWeaponRuleInstance(WeaponRuleInstance rule, int weaponID)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("DELETE FROM WeaponSpecialRuleInstance WHERE weapon = @weapon AND rule = @rule AND " +
+                "amount = @amount ", connection))
+            {
+                cmd.Parameters.AddWithValue("@weapon", weaponID);
+                cmd.Parameters.AddWithValue("@rule", rule.RuleID);
+                cmd.Parameters.AddWithValue("@amount", rule.Amount);
+
+                int rows = cmd.ExecuteNonQuery();
+
+            }
+            connection.Close();
+        }
+
+        public void UpdateWeaponRuleInstance(WeaponRuleInstance rule, int weaponID)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("UPDATE WeaponSpecialRuleInstances SET amount = @amount WHERE weapon = @weaponID, " +
+                "rule = @ruleID", connection))
+            {
+                cmd.Parameters.AddWithValue("@amount", rule.Amount);
+                cmd.Parameters.AddWithValue("@weaponID", weaponID);
+                cmd.Parameters.AddWithValue("@ruleID", rule.RuleID);
+
+                int rows = cmd.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+
         public int GetWeaponID(Weapon weapon)
         {
             int weaponId = 0;
-            connection = dBControl.GetConnection();
-            connection.Open();
+            MySqlConnection connection1 = dBControl.GetConnection();
+            connection1.Open();
             MySqlDataReader dataReader;
 
-            using (MySqlCommand cmd = new MySqlCommand("SELECT weaponID FROM Weapons where name = @name", connection))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT weaponID FROM Weapons where name = @name", connection1))
             {
                 cmd.Parameters.AddWithValue("@name", weapon.Name);
 
@@ -124,7 +178,7 @@ namespace DropfleetDatabaseEditor.Controllers
                     weaponId = dataReader.GetInt16(0);
                 }
             }
-            connection.Close();
+            connection1.Close();
             return weaponId;
             
         } 
@@ -133,32 +187,32 @@ namespace DropfleetDatabaseEditor.Controllers
         {
             List<WeaponRuleInstance> weaponRules = new List<WeaponRuleInstance>();
 
-            connection = dBControl.GetConnection();
-            MySqlDataReader dataReader;
+            MySqlConnection connection1 = dBControl.GetConnection();
+            MySqlDataReader dataReader1;
 
-            connection.Open();
+            connection1.Open();
 
             using (MySqlCommand cmd = new MySqlCommand("SELECT i.rule, r.rule, i.amount FROM WeaponSpecialRuleInstance AS i, WeaponSpecialRules AS r " +
-                "WHERE i.weapon = @weaponID",connection))
+                "WHERE i.weapon = @weaponID AND r.ruleid = i.rule", connection1))
             {
                 cmd.Parameters.AddWithValue("@weaponID", weaponID);
 
-                dataReader = cmd.ExecuteReader();
+                dataReader1 = cmd.ExecuteReader();
 
-                while (dataReader.Read())
+                while (dataReader1.Read())
                 {
                     WeaponRuleInstance newRuleInstance = new WeaponRuleInstance
                     {
-                        RuleID = dataReader.GetInt16(0),
-                        Rule = dataReader.GetString(1),
-                        Amount = dataReader.GetInt16(2)
+                        RuleID = dataReader1.GetInt16(0),
+                        Rule = dataReader1.GetString(1),
+                        Amount = dataReader1.GetInt16(2)
                     };
 
                     weaponRules.Add(newRuleInstance);
                 }
             }
 
-            connection.Close();
+            connection1.Close();
             return weaponRules;
         }
 
@@ -191,9 +245,11 @@ namespace DropfleetDatabaseEditor.Controllers
 
                 while (dataReader.Read())
                 {
-                    WeaponRule newRule = new WeaponRule();
-                    newRule.RuleID = dataReader.GetInt16(0);
-                    newRule.Rule = dataReader.GetString(1);
+                    WeaponRule newRule = new WeaponRule
+                    {
+                        RuleID = dataReader.GetInt16(0),
+                        Rule = dataReader.GetString(1)
+                    };
                     weaponRules.Add(newRule);
                 }
             }

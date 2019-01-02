@@ -32,6 +32,7 @@
             this.weaponScreenButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.AttackTextBox = new System.Windows.Forms.TextBox();
             this.addWeaponButton = new System.Windows.Forms.Button();
             this.deleteRuleButton = new System.Windows.Forms.Button();
             this.updateRuleAmountButton = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.AttackTextBox = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editRuleAmountSelector)).BeginInit();
@@ -116,6 +116,14 @@
             this.panel1.Size = new System.Drawing.Size(812, 370);
             this.panel1.TabIndex = 5;
             // 
+            // AttackTextBox
+            // 
+            this.AttackTextBox.Location = new System.Drawing.Point(319, 124);
+            this.AttackTextBox.Name = "AttackTextBox";
+            this.AttackTextBox.Size = new System.Drawing.Size(121, 20);
+            this.AttackTextBox.TabIndex = 18;
+            this.AttackTextBox.TextChanged += new System.EventHandler(this.AttackTextBox_TextChanged);
+            // 
             // addWeaponButton
             // 
             this.addWeaponButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -135,7 +143,7 @@
             this.deleteRuleButton.TabIndex = 16;
             this.deleteRuleButton.Text = "Delete Rule";
             this.deleteRuleButton.UseVisualStyleBackColor = true;
-            this.deleteRuleButton.Click += new System.EventHandler(this.deleteRuleButton_Click);
+            this.deleteRuleButton.Click += new System.EventHandler(this.DeleteRuleButton_Click);
             // 
             // updateRuleAmountButton
             // 
@@ -145,7 +153,7 @@
             this.updateRuleAmountButton.TabIndex = 15;
             this.updateRuleAmountButton.Text = "Update Rule Amount";
             this.updateRuleAmountButton.UseVisualStyleBackColor = true;
-            this.updateRuleAmountButton.Click += new System.EventHandler(this.updateRuleAmountButton_Click);
+            this.updateRuleAmountButton.Click += new System.EventHandler(this.UpdateRuleAmountButton_Click);
             // 
             // editRuleAmountSelector
             // 
@@ -153,6 +161,7 @@
             this.editRuleAmountSelector.Name = "editRuleAmountSelector";
             this.editRuleAmountSelector.Size = new System.Drawing.Size(49, 20);
             this.editRuleAmountSelector.TabIndex = 14;
+            this.editRuleAmountSelector.ValueChanged += new System.EventHandler(this.editRuleAmountSelector_ValueChanged);
             // 
             // addRuleButton
             // 
@@ -162,7 +171,7 @@
             this.addRuleButton.TabIndex = 13;
             this.addRuleButton.Text = "Add Rule";
             this.addRuleButton.UseVisualStyleBackColor = true;
-            this.addRuleButton.Click += new System.EventHandler(this.addRuleButton_Click);
+            this.addRuleButton.Click += new System.EventHandler(this.AddRuleButton_Click);
             // 
             // ruleAmountSelect
             // 
@@ -170,6 +179,7 @@
             this.ruleAmountSelect.Name = "ruleAmountSelect";
             this.ruleAmountSelect.Size = new System.Drawing.Size(49, 20);
             this.ruleAmountSelect.TabIndex = 12;
+            this.ruleAmountSelect.ValueChanged += new System.EventHandler(this.ruleAmountSelect_ValueChanged);
             // 
             // weaponRuleComboBox
             // 
@@ -178,6 +188,7 @@
             this.weaponRuleComboBox.Name = "weaponRuleComboBox";
             this.weaponRuleComboBox.Size = new System.Drawing.Size(121, 21);
             this.weaponRuleComboBox.TabIndex = 11;
+            this.weaponRuleComboBox.SelectedIndexChanged += new System.EventHandler(this.weaponRuleComboBox_SelectedIndexChanged);
             // 
             // specialRulesListBox
             // 
@@ -186,6 +197,7 @@
             this.specialRulesListBox.Name = "specialRulesListBox";
             this.specialRulesListBox.Size = new System.Drawing.Size(120, 95);
             this.specialRulesListBox.TabIndex = 10;
+            this.specialRulesListBox.SelectedIndexChanged += new System.EventHandler(this.specialRulesListBox_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -274,14 +286,6 @@
             this.nameTextBox.Size = new System.Drawing.Size(206, 20);
             this.nameTextBox.TabIndex = 0;
             this.nameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
-            // 
-            // AttackTextBox
-            // 
-            this.AttackTextBox.Location = new System.Drawing.Point(319, 124);
-            this.AttackTextBox.Name = "AttackTextBox";
-            this.AttackTextBox.Size = new System.Drawing.Size(121, 20);
-            this.AttackTextBox.TabIndex = 18;
-            this.AttackTextBox.TextChanged += new System.EventHandler(this.AttackTextBox_TextChanged);
             // 
             // AddWeaponForm
             // 
