@@ -42,6 +42,31 @@ namespace DropfleetDatabaseEditor.Controllers
             }
 
             connection.Close();
+            
+        }
+
+        public int GetShipID(string shipName, int shipPoints)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+            MySqlDataReader dataReader;
+            int shipID = 0;
+
+            using (MySqlCommand cmd = new MySqlCommand("SELECT shipID FROM Ships WHERE name = @name AND points = @points", connection))
+            {
+                cmd.Parameters.AddWithValue("@name", shipName);
+                cmd.Parameters.AddWithValue("@points", shipPoints);
+
+                dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    shipID = dataReader.GetInt16(0);
+                }
+            }
+
+            connection.Close();
+            return shipID;
         }
     }
 }

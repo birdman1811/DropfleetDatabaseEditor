@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ShipRulesButton = new System.Windows.Forms.Button();
             this.tonnageButton = new System.Windows.Forms.Button();
             this.weaponsControlButton = new System.Windows.Forms.Button();
-            this.ShipRulesButton = new System.Windows.Forms.Button();
+            this.ShipBuilderButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.ShipBuilderButton);
             this.panel1.Controls.Add(this.ShipRulesButton);
             this.panel1.Controls.Add(this.tonnageButton);
             this.panel1.Controls.Add(this.weaponsControlButton);
@@ -45,6 +47,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(714, 400);
             this.panel1.TabIndex = 0;
+            // 
+            // ShipRulesButton
+            // 
+            this.ShipRulesButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShipRulesButton.Location = new System.Drawing.Point(398, 134);
+            this.ShipRulesButton.Name = "ShipRulesButton";
+            this.ShipRulesButton.Size = new System.Drawing.Size(112, 60);
+            this.ShipRulesButton.TabIndex = 2;
+            this.ShipRulesButton.Text = "Ship Rules";
+            this.ShipRulesButton.UseVisualStyleBackColor = true;
+            this.ShipRulesButton.Click += new System.EventHandler(this.ShipRulesButton_Click);
             // 
             // tonnageButton
             // 
@@ -68,16 +81,16 @@
             this.weaponsControlButton.UseVisualStyleBackColor = true;
             this.weaponsControlButton.Click += new System.EventHandler(this.WeaponsControlButton_Click);
             // 
-            // ShipRulesButton
+            // ShipBuilderButton
             // 
-            this.ShipRulesButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ShipRulesButton.Location = new System.Drawing.Point(398, 134);
-            this.ShipRulesButton.Name = "ShipRulesButton";
-            this.ShipRulesButton.Size = new System.Drawing.Size(112, 60);
-            this.ShipRulesButton.TabIndex = 2;
-            this.ShipRulesButton.Text = "Ship Rules";
-            this.ShipRulesButton.UseVisualStyleBackColor = true;
-            this.ShipRulesButton.Click += new System.EventHandler(this.ShipRulesButton_Click);
+            this.ShipBuilderButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShipBuilderButton.Location = new System.Drawing.Point(139, 224);
+            this.ShipBuilderButton.Name = "ShipBuilderButton";
+            this.ShipBuilderButton.Size = new System.Drawing.Size(112, 60);
+            this.ShipBuilderButton.TabIndex = 3;
+            this.ShipBuilderButton.Text = "Build a Ship";
+            this.ShipBuilderButton.UseVisualStyleBackColor = true;
+            this.ShipBuilderButton.Click += new System.EventHandler(this.ShipBuilderButton_Click);
             // 
             // ShipControlForm
             // 
@@ -99,5 +112,6 @@
         private System.Windows.Forms.Button weaponsControlButton;
         private System.Windows.Forms.Button tonnageButton;
         private System.Windows.Forms.Button ShipRulesButton;
+        private System.Windows.Forms.Button ShipBuilderButton;
     }
 }

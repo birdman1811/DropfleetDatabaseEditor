@@ -146,6 +146,12 @@
     <Compile Include="Interface\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\ShipBuilderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\ShipBuilderForm.Designer.cs">
+      <DependentUpon>ShipBuilderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\ShipControlForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     <EmbeddedResource Include="Interface\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interface\ShipBuilderForm.resx">
+      <DependentUpon>ShipBuilderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interface\ShipControlForm.resx">
       <DependentUpon>ShipControlForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,6 +264,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Properties\EVA Battleship  Routine Maintenance.3.jpg" />
     <None Include="Properties\Battle of Vega BG Wip 9 %28chromatic%29 - Copy.jpg" />
     <Content Include="Properties\BOX Cover DROPFLEET Commander Final.jpg" />
     <Content Include="Properties\DFC-logo-colour-whiteBG.png" />

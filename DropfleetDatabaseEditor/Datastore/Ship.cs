@@ -30,6 +30,7 @@ namespace DropfleetDatabaseEditor.Datastore
 
         public Ship()
         {
+            Special = new List<ShipRule>();
         }
 
         public Ship(int shipID, string name, Faction faction, int scan, int sigMin, int sigMax, int thrust, int hull, int aMin, int aMax, int pd, int gMin, int gMax, bool launch,
@@ -94,5 +95,15 @@ namespace DropfleetDatabaseEditor.Datastore
         internal List<WeaponFacing> Weapons { get => weapons; set => weapons = value; }
         internal List<ShipRule> Special { get => special; set => special = value; }
         internal List<LaunchAsset> LaunchAssets { get => launchAssets; set => launchAssets = value; }
+
+        public void AddRule(ShipRule rule)
+        {
+            Special.Add(rule);
+        }
+
+        public void RemoveRule(ShipRule rule)
+        {
+            Special.Remove(rule);
+        }
     }
 }

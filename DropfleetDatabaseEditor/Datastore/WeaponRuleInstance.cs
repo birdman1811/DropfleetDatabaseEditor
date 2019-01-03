@@ -21,7 +21,7 @@ namespace DropfleetDatabaseEditor.Datastore
         }
         public int Amount { get => amount; set => amount = value; }
 
-        public string fullString
+        public string FullString
         {
             get
             {

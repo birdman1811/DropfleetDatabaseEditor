@@ -23,5 +23,7 @@ namespace DropfleetDatabaseEditor.Datastore
 
         public int RuleID { get => ruleID; set => ruleID = value; }
         public string Rule { get => rule; set => rule = value; }
+
+
     }
 }
