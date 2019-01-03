@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace DropfleetDatabaseEditor.Datastore
 {
-    class ShipRules
+    class ShipRule
     {
         private int ruleID;
         private string rule;
         private int amount;
 
-        public ShipRules()
+        public ShipRule()
         {
         }
 
-        public ShipRules(int ruleID, string rule, int amount)
+        public ShipRule(int ruleID, string rule, int amount)
         {
             this.RuleID = ruleID;
             this.Rule = rule;

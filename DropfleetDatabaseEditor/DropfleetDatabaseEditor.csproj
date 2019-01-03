@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="Controllers\DatabaseControl.cs" />
     <Compile Include="Controllers\FactionController.cs" />
+    <Compile Include="Controllers\ShipRulesController.cs" />
     <Compile Include="Controllers\TonnageController.cs" />
     <Compile Include="Controllers\UserAccessController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -80,7 +81,7 @@
     <Compile Include="Datastore\Fighters.cs" />
     <Compile Include="Datastore\LaunchAsset.cs" />
     <Compile Include="Datastore\Ship.cs" />
-    <Compile Include="Datastore\ShipRules.cs" />
+    <Compile Include="Datastore\ShipRule.cs" />
     <Compile Include="Datastore\Tonnage.cs" />
     <Compile Include="Datastore\TonnageClass.cs" />
     <Compile Include="Datastore\Torpedo.cs" />
@@ -149,6 +150,12 @@
     <Compile Include="Interface\ShipControlForm.Designer.cs">
       <DependentUpon>ShipControlForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\ShipRulesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\ShipRulesForm.Designer.cs">
+      <DependentUpon>ShipRulesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\TonnageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\ShipControlForm.resx">
       <DependentUpon>ShipControlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\ShipRulesForm.resx">
+      <DependentUpon>ShipRulesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\TonnageForm.resx">
       <DependentUpon>TonnageForm.cs</DependentUpon>

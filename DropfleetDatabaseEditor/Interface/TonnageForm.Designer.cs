@@ -43,15 +43,15 @@
             this.tonnageTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.editPanel = new System.Windows.Forms.Panel();
+            this.tonnageCombo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.saveEditedButton = new System.Windows.Forms.Button();
             this.editTonnageClassCombo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.editTonnageValueSelect = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.editTonnageTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.tonnageCombo = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.createPanel.SuspendLayout();
@@ -214,7 +214,7 @@
             this.editPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.editPanel.Controls.Add(this.tonnageCombo);
             this.editPanel.Controls.Add(this.label7);
-            this.editPanel.Controls.Add(this.button1);
+            this.editPanel.Controls.Add(this.saveEditedButton);
             this.editPanel.Controls.Add(this.editTonnageClassCombo);
             this.editPanel.Controls.Add(this.label4);
             this.editPanel.Controls.Add(this.editTonnageValueSelect);
@@ -227,6 +227,15 @@
             this.editPanel.TabIndex = 8;
             this.editPanel.Visible = false;
             // 
+            // tonnageCombo
+            // 
+            this.tonnageCombo.FormattingEnabled = true;
+            this.tonnageCombo.Location = new System.Drawing.Point(24, 59);
+            this.tonnageCombo.Name = "tonnageCombo";
+            this.tonnageCombo.Size = new System.Drawing.Size(121, 21);
+            this.tonnageCombo.TabIndex = 15;
+            this.tonnageCombo.SelectedIndexChanged += new System.EventHandler(this.TonnageCombo_SelectedIndexChanged);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -238,15 +247,16 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Tonnage To Edit";
             // 
-            // button1
+            // saveEditedButton
             // 
-            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(24, 370);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 87);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Save Tonnage";
-            this.button1.UseVisualStyleBackColor = true;
+            this.saveEditedButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveEditedButton.Location = new System.Drawing.Point(24, 370);
+            this.saveEditedButton.Name = "saveEditedButton";
+            this.saveEditedButton.Size = new System.Drawing.Size(161, 87);
+            this.saveEditedButton.TabIndex = 13;
+            this.saveEditedButton.Text = "Save Tonnage";
+            this.saveEditedButton.UseVisualStyleBackColor = true;
+            this.saveEditedButton.Click += new System.EventHandler(this.SaveEditedButton_Click);
             // 
             // editTonnageClassCombo
             // 
@@ -255,6 +265,7 @@
             this.editTonnageClassCombo.Name = "editTonnageClassCombo";
             this.editTonnageClassCombo.Size = new System.Drawing.Size(121, 21);
             this.editTonnageClassCombo.TabIndex = 12;
+            this.editTonnageClassCombo.SelectedIndexChanged += new System.EventHandler(this.EditTonnageClassCombo_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -273,6 +284,7 @@
             this.editTonnageValueSelect.Name = "editTonnageValueSelect";
             this.editTonnageValueSelect.Size = new System.Drawing.Size(67, 20);
             this.editTonnageValueSelect.TabIndex = 10;
+            this.editTonnageValueSelect.ValueChanged += new System.EventHandler(this.EditTonnageValueSelect_ValueChanged);
             // 
             // label5
             // 
@@ -291,6 +303,7 @@
             this.editTonnageTextBox.Name = "editTonnageTextBox";
             this.editTonnageTextBox.Size = new System.Drawing.Size(67, 20);
             this.editTonnageTextBox.TabIndex = 8;
+            this.editTonnageTextBox.TextChanged += new System.EventHandler(this.EditTonnageTextBox_TextChanged);
             // 
             // label6
             // 
@@ -302,15 +315,6 @@
             this.label6.Size = new System.Drawing.Size(235, 26);
             this.label6.TabIndex = 7;
             this.label6.Text = "Tonnage Designation";
-            // 
-            // tonnageCombo
-            // 
-            this.tonnageCombo.FormattingEnabled = true;
-            this.tonnageCombo.Location = new System.Drawing.Point(24, 59);
-            this.tonnageCombo.Name = "tonnageCombo";
-            this.tonnageCombo.Size = new System.Drawing.Size(121, 21);
-            this.tonnageCombo.TabIndex = 15;
-            this.tonnageCombo.SelectedIndexChanged += new System.EventHandler(this.TonnageCombo_SelectedIndexChanged);
             // 
             // TonnageForm
             // 
@@ -354,7 +358,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button saveEditedButton;
         private System.Windows.Forms.ComboBox editTonnageClassCombo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown editTonnageValueSelect;

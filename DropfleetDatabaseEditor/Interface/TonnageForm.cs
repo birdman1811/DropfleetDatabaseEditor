@@ -107,5 +107,28 @@ namespace DropfleetDatabaseEditor.Interface
             editTonnageValueSelect.Value = (int)editTonnage.Value;        
 
         }
+
+        private void EditTonnageTextBox_TextChanged(object sender, EventArgs e)
+        {
+            editTonnage.TonnageName = editTonnageTextBox.Text;
+        }
+
+        private void EditTonnageValueSelect_ValueChanged(object sender, EventArgs e)
+        {
+            editTonnage.Value = (int)editTonnageValueSelect.Value;
+        }
+
+        private void EditTonnageClassCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            editTonnage.TonnageClass = (TonnageClass)editTonnageClassCombo.SelectedItem;
+        }
+
+        private void SaveEditedButton_Click(object sender, EventArgs e)
+        {
+            tonnageControl.UpdateTonnage(editTonnage);
+            editPanel.Visible = false;
+            Thread successThread = new Thread(SuccessMessage);
+            successThread.Start();
+        }
     }
 }

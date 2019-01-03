@@ -24,7 +24,7 @@ namespace DropfleetDatabaseEditor.Datastore
         private bool launch;
         private Tonnage tonnage;
         private List<WeaponFacing> weapons;
-        private List<ShipRules> special;
+        private List<ShipRule> special;
         private int points;
         private List<LaunchAsset> launchAssets;
 
@@ -33,7 +33,7 @@ namespace DropfleetDatabaseEditor.Datastore
         }
 
         public Ship(int shipID, string name, Faction faction, int scan, int sigMin, int sigMax, int thrust, int hull, int aMin, int aMax, int pd, int gMin, int gMax, bool launch,
-            Tonnage tonnage, List<WeaponFacing> weapons, List<ShipRules> special, int points, List<LaunchAsset> launchAssets)
+            Tonnage tonnage, List<WeaponFacing> weapons, List<ShipRule> special, int points, List<LaunchAsset> launchAssets)
         {
             ShipID = shipID;
             Name = name;
@@ -92,7 +92,7 @@ namespace DropfleetDatabaseEditor.Datastore
         internal Faction Faction { get => faction; set => faction = value; }
         internal Tonnage Tonnage { get => tonnage; set => tonnage = value; }
         internal List<WeaponFacing> Weapons { get => weapons; set => weapons = value; }
-        internal List<ShipRules> Special { get => special; set => special = value; }
+        internal List<ShipRule> Special { get => special; set => special = value; }
         internal List<LaunchAsset> LaunchAssets { get => launchAssets; set => launchAssets = value; }
     }
 }
