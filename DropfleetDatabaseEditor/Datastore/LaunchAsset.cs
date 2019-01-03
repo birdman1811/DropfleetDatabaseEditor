@@ -10,18 +10,21 @@ namespace DropfleetDatabaseEditor.Datastore
     {
         private int assetID;
         private string asset;
+        private int amount;
 
         public LaunchAsset()
         {
         }
 
-        public LaunchAsset(int assetID, string asset)
+        public LaunchAsset(int assetID, string asset, int amount)
         {
             this.AssetID = assetID;
             this.Asset = asset;
+            this.amount = amount;
         }
 
         public int AssetID { get => assetID; set => assetID = value; }
         public string Asset { get => asset; set => asset = value; }
+        public int Amount { get => amount; set => amount = value; }
     }
 }
