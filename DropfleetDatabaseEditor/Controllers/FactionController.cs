@@ -83,5 +83,34 @@ namespace DropfleetDatabaseEditor.Controllers
             }
             connection.Close();
         }
+
+        public Faction GetFactionByID(int factionID)
+        {
+            connection = dBControl.GetConnection();
+            MySqlDataReader dataReader;
+            connection.Open();
+            Faction faction = new Faction();
+
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Factions WHERE factionID = @factionID", connection))
+            {
+                cmd.Parameters.AddWithValue("@factionID", factionID);
+
+                dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    faction.FactionID = dataReader.GetInt16(0);
+                    faction.Name = dataReader.GetString(1);
+                    faction.Icon = dataReader.GetString(2);
+                    faction.Lore = dataReader.GetString(3);
+                    faction.Gameplay = dataReader.GetString(4);
+                }
+
+                
+            }
+            connection.Close();
+
+            return faction;
+        }
     }
 }

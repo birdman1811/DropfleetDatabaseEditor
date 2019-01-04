@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DropfleetDatabaseEditor.Datastore
 {
-    class Faction
+    public class Faction
     {
         private int factionID;
         private string name;

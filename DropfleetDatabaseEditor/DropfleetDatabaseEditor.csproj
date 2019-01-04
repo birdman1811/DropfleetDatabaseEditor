@@ -182,6 +182,12 @@
     <Compile Include="Interface\WeaponControlForm.Designer.cs">
       <DependentUpon>WeaponControlForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\WeaponiseShipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\WeaponiseShipForm.Designer.cs">
+      <DependentUpon>WeaponiseShipForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\WeaponRulesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\WeaponControlForm.resx">
       <DependentUpon>WeaponControlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\WeaponiseShipForm.resx">
+      <DependentUpon>WeaponiseShipForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\WeaponRulesForm.resx">
       <DependentUpon>WeaponRulesForm.cs</DependentUpon>

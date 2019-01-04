@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DropfleetDatabaseEditor.Datastore
 {
-    class LaunchAsset
+    public class LaunchAsset
     {
         private int assetID;
         private string asset;

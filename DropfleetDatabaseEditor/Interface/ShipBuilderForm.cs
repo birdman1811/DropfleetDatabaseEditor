@@ -156,6 +156,9 @@ namespace DropfleetDatabaseEditor.Interface
         {
             shipController.InsertShip(newShip);
             newShip.ShipID = shipController.GetShipID(newShip.Name, newShip.Points);
+            WeaponiseShipForm newScreen = new WeaponiseShipForm(newShip);
+            newScreen.Show();
+            Close();
         }
     }
 }

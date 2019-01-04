@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DropfleetDatabaseEditor.Datastore
 {
-    class Tonnage
+    public class Tonnage
     {
         private int tonnageID;
         private string tonnageName;

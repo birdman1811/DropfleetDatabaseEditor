@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DropfleetDatabaseEditor.Datastore
 {
-    class WeaponRule
+    public class WeaponRule
     {
         private int ruleID;
         private string rule;

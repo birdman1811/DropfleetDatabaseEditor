@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DropfleetDatabaseEditor.Datastore
 {
-    class Facings
+    public class Facings
     {
         private int faceID;
         private string facing;

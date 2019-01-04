@@ -124,6 +124,178 @@ namespace DropfleetDatabaseEditor.Controllers
             connection.Close();
         }
 
+        public List<Facings> GetAllFacings()
+        {
+            List<Facings> facingsList = new List<Facings>();
+            connection = dBControl.GetConnection();
+            connection.Open();
+            MySqlDataReader dataReader;
+
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM FACINGS", connection))
+            {
+                dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Facings newFacing = new Facings
+                    {
+                        FaceID = dataReader.GetInt16(0),
+                        Facing = dataReader.GetString(1)
+                    };
+
+                    facingsList.Add(newFacing);
+                }
+            }
+
+            connection.Close();
+            return facingsList;
+        }
+
+        public void InsertFacingInstance( Facings facing, int listNumber)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("INSERT INTO FacingInstance (listNumber, facing) VALUES (@weaponInstance, @facingID)", connection))
+            {
+                cmd.Parameters.AddWithValue("@weaponInstance", listNumber);
+                cmd.Parameters.AddWithValue("@facingID", facing.FaceID);
+
+                int rows = cmd.ExecuteNonQuery();
+            }
+
+            connection.Close();
+        }
+
+        public void DeleteFacingInstance(int listNumber, Facings facing)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("DELETE FROM FacingInstance WHERE listNumber= @weaponInstance AND facing = @facingID", connection))
+            {
+                cmd.Parameters.AddWithValue("@weaponInstance", listNumber);
+                cmd.Parameters.AddWithValue("@facingID", facing.FaceID);
+
+                int rows = cmd.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public void InsertWeaponInstance(WeaponFacing weaponFacing, int shipID)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("INSERT INTO WeaponInstance (weapon, ship, listNumber) VALUES " +
+                "(@weapon, @ship, @listNumber", connection))
+            {
+                cmd.Parameters.AddWithValue("@weapon", weaponFacing.Weapon.WeaponID);
+                cmd.Parameters.AddWithValue("@ship", shipID);
+                cmd.Parameters.AddWithValue("@listNumber", weaponFacing.ListNumber);
+
+                int rows = cmd.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public void DeleteWeaponInstance(WeaponFacing weaponFacing)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("DELETE FROM WeaponInstance WHERE listNumber = @listNumber", connection))
+            {
+                cmd.Parameters.AddWithValue("@listNumber", weaponFacing.ListNumber);
+
+                int rows = cmd.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public List<int> GetListNumbers()
+        {
+            List<int> listNumbers = new List<int>();
+            connection = dBControl.GetConnection();
+            MySqlDataReader dataReader;
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM WeaponInstance", connection))
+            {
+                dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    int listNumber = dataReader.GetInt16(3);
+                    listNumbers.Add(listNumber);
+                }
+            }
+            connection.Close();
+
+            return listNumbers;
+        }
+
+        public List<WeaponFacing> GetWeaponsByShip(int shipID)
+        {
+            List<WeaponFacing> weaponsList = new List<WeaponFacing>();
+            connection = dBControl.GetConnection();
+            MySqlDataReader dataReader;
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM WeaponInstance WHERE ship = @shipid", connection))
+            {
+                cmd.Parameters.AddWithValue("@shipid", shipID);
+
+                dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    WeaponFacing newWeaponFacing = new WeaponFacing
+                    {
+                        ListNumber = dataReader.GetInt16(3)
+                    };
+                    int weaponID = dataReader.GetInt16(1);
+                    newWeaponFacing.Weapon = GetWeaponByID(weaponID);
+
+                    weaponsList.Add(newWeaponFacing);
+                }
+            }
+
+            connection.Close();
+
+            return weaponsList;
+        }
+
+        public Weapon GetWeaponByID(int weaponID)
+        {
+            Weapon weapon = new Weapon();
+            connection = dBControl.GetConnection();
+            MySqlDataReader dataReader;
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Weapons WHERE weaponID = @weaponID", connection))
+            {
+                cmd.Parameters.AddWithValue("@weaponID", weaponID);
+
+                dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    weapon.Name = dataReader.GetString(2);
+                    weapon.LockValue = dataReader.GetInt16(3);
+                    weapon.Attack = dataReader.GetString(4);
+                    weapon.Damage = dataReader.GetInt16(5);
+                    int factionID = dataReader.GetInt16(1);
+                    FactionController factionController = new FactionController();
+                    weapon.Faction = factionController.GetFactionByID(factionID);
+
+                }
+            }
+
+            connection.Close();
+            return weapon;
+        }
+
         public void DeleteWeaponRuleInstance(WeaponRuleInstance rule, int weaponID)
         {
             connection = dBControl.GetConnection();
