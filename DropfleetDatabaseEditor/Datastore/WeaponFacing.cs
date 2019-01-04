@@ -27,5 +27,37 @@ namespace DropfleetDatabaseEditor.Datastore
         public int ListNumber { get => listNumber; set => listNumber = value; }
         internal Weapon Weapon { get => weapon; set => weapon = value; }
         internal List<Facings> Facings { get => facings; set => facings = value; }
+
+        private string CreateFaceString()
+        {
+            string faceString = "";
+
+            foreach (Facings face in facings)
+            {
+                string thisFace = face.Facing;
+                faceString = string.Concat( faceString, "/", thisFace);
+            }
+
+            return faceString;
+        }
+
+        public string FullString
+        {
+            get
+            {
+                string faceString = CreateFaceString();
+                return weapon.Name + faceString;                
+            }
+        }
+
+        public void AddFacing(Facings facing)
+        {
+            facings.Add(facing);
+        }
+
+        public void RemoveFacing(Facings facing)
+        {
+            facings.Remove(facing);
+        }
     }
 }

@@ -43,6 +43,7 @@ namespace DropfleetDatabaseEditor.Interface
             rulesCombo.DisplayMember = "rule";
             ShipSpecialRulesBox.DataSource = newShip.Special;
             ShipSpecialRulesBox.DisplayMember = "fullString";
+            newShip.Faction = (Faction)factionComboBox.SelectedItem;
         }
        
 
@@ -159,6 +160,11 @@ namespace DropfleetDatabaseEditor.Interface
             WeaponiseShipForm newScreen = new WeaponiseShipForm(newShip);
             newScreen.Show();
             Close();
+        }
+
+        private void factionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            newShip.Faction = (Faction)factionComboBox.SelectedItem;
         }
     }
 }

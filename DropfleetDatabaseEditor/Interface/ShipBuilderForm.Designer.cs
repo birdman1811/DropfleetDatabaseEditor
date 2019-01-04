@@ -32,6 +32,15 @@
             this.mainMenuButton = new System.Windows.Forms.Button();
             this.shipsMenuButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.AddWeaponsButton = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.deleteRuleButton = new System.Windows.Forms.Button();
+            this.ruleAmountSelect = new System.Windows.Forms.NumericUpDown();
+            this.addRuleButton = new System.Windows.Forms.Button();
+            this.rulesCombo = new System.Windows.Forms.ComboBox();
+            this.ShipSpecialRulesBox = new System.Windows.Forms.ListBox();
+            this.PointsSelect = new System.Windows.Forms.NumericUpDown();
+            this.label18 = new System.Windows.Forms.Label();
             this.TonnageComboBox = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.launchCheckBox = new System.Windows.Forms.CheckBox();
@@ -66,17 +75,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.PointsSelect = new System.Windows.Forms.NumericUpDown();
-            this.label18 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.ShipSpecialRulesBox = new System.Windows.Forms.ListBox();
-            this.rulesCombo = new System.Windows.Forms.ComboBox();
-            this.addRuleButton = new System.Windows.Forms.Button();
-            this.ruleAmountSelect = new System.Windows.Forms.NumericUpDown();
-            this.deleteRuleButton = new System.Windows.Forms.Button();
-            this.AddWeaponsButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ruleAmountSelect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PointsSelect)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GroupMaxSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroupMinSeelct)).BeginInit();
@@ -90,9 +93,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.maxSigSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minSigSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scanSelect)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PointsSelect)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ruleAmountSelect)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -157,6 +157,105 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(914, 431);
             this.panel1.TabIndex = 7;
+            // 
+            // AddWeaponsButton
+            // 
+            this.AddWeaponsButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddWeaponsButton.Location = new System.Drawing.Point(623, 280);
+            this.AddWeaponsButton.Name = "AddWeaponsButton";
+            this.AddWeaponsButton.Size = new System.Drawing.Size(145, 98);
+            this.AddWeaponsButton.TabIndex = 27;
+            this.AddWeaponsButton.Text = "Add Weapons";
+            this.AddWeaponsButton.UseVisualStyleBackColor = true;
+            this.AddWeaponsButton.Click += new System.EventHandler(this.AddWeaponsButton_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.deleteRuleButton);
+            this.groupBox4.Controls.Add(this.ruleAmountSelect);
+            this.groupBox4.Controls.Add(this.addRuleButton);
+            this.groupBox4.Controls.Add(this.rulesCombo);
+            this.groupBox4.Controls.Add(this.ShipSpecialRulesBox);
+            this.groupBox4.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox4.Location = new System.Drawing.Point(578, 36);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(306, 228);
+            this.groupBox4.TabIndex = 26;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Ship Special Rules";
+            // 
+            // deleteRuleButton
+            // 
+            this.deleteRuleButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.deleteRuleButton.Location = new System.Drawing.Point(198, 185);
+            this.deleteRuleButton.Name = "deleteRuleButton";
+            this.deleteRuleButton.Size = new System.Drawing.Size(83, 34);
+            this.deleteRuleButton.TabIndex = 20;
+            this.deleteRuleButton.Text = "Delete";
+            this.deleteRuleButton.UseVisualStyleBackColor = true;
+            this.deleteRuleButton.Click += new System.EventHandler(this.DeleteRuleButton_Click);
+            // 
+            // ruleAmountSelect
+            // 
+            this.ruleAmountSelect.Location = new System.Drawing.Point(108, 93);
+            this.ruleAmountSelect.Name = "ruleAmountSelect";
+            this.ruleAmountSelect.Size = new System.Drawing.Size(67, 31);
+            this.ruleAmountSelect.TabIndex = 19;
+            // 
+            // addRuleButton
+            // 
+            this.addRuleButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.addRuleButton.Location = new System.Drawing.Point(19, 93);
+            this.addRuleButton.Name = "addRuleButton";
+            this.addRuleButton.Size = new System.Drawing.Size(83, 39);
+            this.addRuleButton.TabIndex = 2;
+            this.addRuleButton.Text = "Add";
+            this.addRuleButton.UseVisualStyleBackColor = true;
+            this.addRuleButton.Click += new System.EventHandler(this.AddRuleButton_Click);
+            // 
+            // rulesCombo
+            // 
+            this.rulesCombo.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rulesCombo.FormattingEnabled = true;
+            this.rulesCombo.Location = new System.Drawing.Point(19, 57);
+            this.rulesCombo.Name = "rulesCombo";
+            this.rulesCombo.Size = new System.Drawing.Size(121, 24);
+            this.rulesCombo.TabIndex = 1;
+            // 
+            // ShipSpecialRulesBox
+            // 
+            this.ShipSpecialRulesBox.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShipSpecialRulesBox.FormattingEnabled = true;
+            this.ShipSpecialRulesBox.ItemHeight = 16;
+            this.ShipSpecialRulesBox.Location = new System.Drawing.Point(180, 57);
+            this.ShipSpecialRulesBox.Name = "ShipSpecialRulesBox";
+            this.ShipSpecialRulesBox.Size = new System.Drawing.Size(120, 116);
+            this.ShipSpecialRulesBox.TabIndex = 0;
+            // 
+            // PointsSelect
+            // 
+            this.PointsSelect.Location = new System.Drawing.Point(427, 230);
+            this.PointsSelect.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.PointsSelect.Name = "PointsSelect";
+            this.PointsSelect.Size = new System.Drawing.Size(67, 20);
+            this.PointsSelect.TabIndex = 25;
+            this.PointsSelect.ValueChanged += new System.EventHandler(this.PointsSelect_ValueChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label18.Location = new System.Drawing.Point(423, 193);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(68, 24);
+            this.label18.TabIndex = 24;
+            this.label18.Text = "Points";
             // 
             // TonnageComboBox
             // 
@@ -471,6 +570,7 @@
             this.factionComboBox.Name = "factionComboBox";
             this.factionComboBox.Size = new System.Drawing.Size(121, 21);
             this.factionComboBox.TabIndex = 3;
+            this.factionComboBox.SelectedIndexChanged += new System.EventHandler(this.factionComboBox_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -502,100 +602,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Ship Name";
             // 
-            // PointsSelect
-            // 
-            this.PointsSelect.Location = new System.Drawing.Point(427, 230);
-            this.PointsSelect.Name = "PointsSelect";
-            this.PointsSelect.Size = new System.Drawing.Size(67, 20);
-            this.PointsSelect.TabIndex = 25;
-            this.PointsSelect.ValueChanged += new System.EventHandler(this.PointsSelect_ValueChanged);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label18.Location = new System.Drawing.Point(423, 193);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(68, 24);
-            this.label18.TabIndex = 24;
-            this.label18.Text = "Points";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.deleteRuleButton);
-            this.groupBox4.Controls.Add(this.ruleAmountSelect);
-            this.groupBox4.Controls.Add(this.addRuleButton);
-            this.groupBox4.Controls.Add(this.rulesCombo);
-            this.groupBox4.Controls.Add(this.ShipSpecialRulesBox);
-            this.groupBox4.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox4.Location = new System.Drawing.Point(578, 36);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(306, 228);
-            this.groupBox4.TabIndex = 26;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Ship Special Rules";
-            // 
-            // ShipSpecialRulesBox
-            // 
-            this.ShipSpecialRulesBox.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ShipSpecialRulesBox.FormattingEnabled = true;
-            this.ShipSpecialRulesBox.ItemHeight = 16;
-            this.ShipSpecialRulesBox.Location = new System.Drawing.Point(180, 57);
-            this.ShipSpecialRulesBox.Name = "ShipSpecialRulesBox";
-            this.ShipSpecialRulesBox.Size = new System.Drawing.Size(120, 116);
-            this.ShipSpecialRulesBox.TabIndex = 0;
-            // 
-            // rulesCombo
-            // 
-            this.rulesCombo.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rulesCombo.FormattingEnabled = true;
-            this.rulesCombo.Location = new System.Drawing.Point(19, 57);
-            this.rulesCombo.Name = "rulesCombo";
-            this.rulesCombo.Size = new System.Drawing.Size(121, 24);
-            this.rulesCombo.TabIndex = 1;
-            // 
-            // addRuleButton
-            // 
-            this.addRuleButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.addRuleButton.Location = new System.Drawing.Point(19, 93);
-            this.addRuleButton.Name = "addRuleButton";
-            this.addRuleButton.Size = new System.Drawing.Size(83, 39);
-            this.addRuleButton.TabIndex = 2;
-            this.addRuleButton.Text = "Add";
-            this.addRuleButton.UseVisualStyleBackColor = true;
-            this.addRuleButton.Click += new System.EventHandler(this.AddRuleButton_Click);
-            // 
-            // ruleAmountSelect
-            // 
-            this.ruleAmountSelect.Location = new System.Drawing.Point(108, 93);
-            this.ruleAmountSelect.Name = "ruleAmountSelect";
-            this.ruleAmountSelect.Size = new System.Drawing.Size(67, 31);
-            this.ruleAmountSelect.TabIndex = 19;
-            // 
-            // deleteRuleButton
-            // 
-            this.deleteRuleButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.deleteRuleButton.Location = new System.Drawing.Point(198, 185);
-            this.deleteRuleButton.Name = "deleteRuleButton";
-            this.deleteRuleButton.Size = new System.Drawing.Size(83, 34);
-            this.deleteRuleButton.TabIndex = 20;
-            this.deleteRuleButton.Text = "Delete";
-            this.deleteRuleButton.UseVisualStyleBackColor = true;
-            this.deleteRuleButton.Click += new System.EventHandler(this.DeleteRuleButton_Click);
-            // 
-            // AddWeaponsButton
-            // 
-            this.AddWeaponsButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddWeaponsButton.Location = new System.Drawing.Point(623, 280);
-            this.AddWeaponsButton.Name = "AddWeaponsButton";
-            this.AddWeaponsButton.Size = new System.Drawing.Size(145, 98);
-            this.AddWeaponsButton.TabIndex = 27;
-            this.AddWeaponsButton.Text = "Add Weapons";
-            this.AddWeaponsButton.UseVisualStyleBackColor = true;
-            this.AddWeaponsButton.Click += new System.EventHandler(this.AddWeaponsButton_Click);
-            // 
             // ShipBuilderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -609,6 +615,9 @@
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ruleAmountSelect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PointsSelect)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GroupMaxSelect)).EndInit();
@@ -625,9 +634,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.maxSigSelect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minSigSelect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scanSelect)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PointsSelect)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ruleAmountSelect)).EndInit();
             this.ResumeLayout(false);
 
         }

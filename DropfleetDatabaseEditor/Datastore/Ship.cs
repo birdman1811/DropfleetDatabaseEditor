@@ -31,6 +31,7 @@ namespace DropfleetDatabaseEditor.Datastore
         public Ship()
         {
             Special = new List<ShipRule>();
+            weapons = new List<WeaponFacing>();
         }
 
         public Ship(int shipID, string name, Faction faction, int scan, int sigMin, int sigMax, int thrust, int hull, int aMin, int aMax, int pd, int gMin, int gMax, bool launch,
@@ -104,6 +105,16 @@ namespace DropfleetDatabaseEditor.Datastore
         public void RemoveRule(ShipRule rule)
         {
             Special.Remove(rule);
+        }
+
+        public void AddWeapon(WeaponFacing weapon)
+        {
+            Weapons.Add(weapon);
+        }
+
+        public void RemoveWeapon(WeaponFacing weapon)
+        {
+            Weapons.Remove(weapon);
         }
     }
 }

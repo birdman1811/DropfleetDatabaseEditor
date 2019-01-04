@@ -131,7 +131,7 @@ namespace DropfleetDatabaseEditor.Controllers
             connection.Open();
             MySqlDataReader dataReader;
 
-            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM FACINGS", connection))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Facings", connection))
             {
                 dataReader = cmd.ExecuteReader();
 
@@ -188,7 +188,7 @@ namespace DropfleetDatabaseEditor.Controllers
             connection.Open();
 
             using (MySqlCommand cmd = new MySqlCommand("INSERT INTO WeaponInstance (weapon, ship, listNumber) VALUES " +
-                "(@weapon, @ship, @listNumber", connection))
+                "(@weapon, @ship, @listNumber)", connection))
             {
                 cmd.Parameters.AddWithValue("@weapon", weaponFacing.Weapon.WeaponID);
                 cmd.Parameters.AddWithValue("@ship", shipID);
