@@ -105,7 +105,6 @@
     <Compile Include="Interface\AddWeaponForm.Designer.cs">
       <DependentUpon>AddWeaponForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interface\Battlegroup.cs" />
     <Compile Include="Interface\BattlegroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
