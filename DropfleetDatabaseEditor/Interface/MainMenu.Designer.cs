@@ -56,7 +56,7 @@
             this.factionControlButton.TabIndex = 1;
             this.factionControlButton.Text = "Factions";
             this.factionControlButton.UseVisualStyleBackColor = true;
-            this.factionControlButton.Click += new System.EventHandler(this.factionControlButton_Click);
+            this.factionControlButton.Click += new System.EventHandler(this.FactionControlButton_Click);
             // 
             // usersButton
             // 
@@ -67,7 +67,7 @@
             this.usersButton.TabIndex = 2;
             this.usersButton.Text = "Users";
             this.usersButton.UseVisualStyleBackColor = true;
-            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
+            this.usersButton.Click += new System.EventHandler(this.UsersButton_Click);
             // 
             // shipsButton
             // 
@@ -78,7 +78,7 @@
             this.shipsButton.TabIndex = 3;
             this.shipsButton.Text = "Ships";
             this.shipsButton.UseVisualStyleBackColor = true;
-            this.shipsButton.Click += new System.EventHandler(this.shipsButton_Click);
+            this.shipsButton.Click += new System.EventHandler(this.ShipsButton_Click);
             // 
             // miscellaneousButton
             // 
@@ -87,8 +87,9 @@
             this.miscellaneousButton.Name = "miscellaneousButton";
             this.miscellaneousButton.Size = new System.Drawing.Size(143, 71);
             this.miscellaneousButton.TabIndex = 4;
-            this.miscellaneousButton.Text = "Misscelaneous";
+            this.miscellaneousButton.Text = "Miscellaneous";
             this.miscellaneousButton.UseVisualStyleBackColor = true;
+            this.miscellaneousButton.Click += new System.EventHandler(this.MiscellaneousButton_Click);
             // 
             // MainMenu
             // 

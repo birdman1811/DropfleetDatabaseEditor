@@ -570,7 +570,7 @@
             this.factionComboBox.Name = "factionComboBox";
             this.factionComboBox.Size = new System.Drawing.Size(121, 21);
             this.factionComboBox.TabIndex = 3;
-            this.factionComboBox.SelectedIndexChanged += new System.EventHandler(this.factionComboBox_SelectedIndexChanged);
+            this.factionComboBox.SelectedIndexChanged += new System.EventHandler(this.FactionComboBox_SelectedIndexChanged);
             // 
             // label2
             // 

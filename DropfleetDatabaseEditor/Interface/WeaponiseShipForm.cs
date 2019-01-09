@@ -32,13 +32,18 @@ namespace DropfleetDatabaseEditor.Interface
             shipToWeaponise = NewShip;
             facingsList = weaponControl.GetAllFacings();            
             listNumbers = weaponControl.GetListNumbers();
-            
+            if (shipToWeaponise.Launch == true)
+            {
+                AddWeaponsButton.Text = "Add Launch Assets";
+            }
         }
 
         private void AddWeaponButton_Click(object sender, EventArgs e)
         {
-            WeaponFacing newWeapon = new WeaponFacing();
-            newWeapon.Weapon = (Weapon)weaponComboBox.SelectedItem;
+            WeaponFacing newWeapon = new WeaponFacing
+            {
+                Weapon = (Weapon)weaponComboBox.SelectedItem
+            };
             if (FBox.Checked == true)
             {
                 Facings newFacing = new Facings(1,"F");
@@ -112,10 +117,20 @@ namespace DropfleetDatabaseEditor.Interface
                 
             }
 
-            ShipBuilderForm newScreen = new ShipBuilderForm();
-            newScreen.Show();
-            Close();
+            if (shipToWeaponise.Launch == false)
+            {
 
+                ShipBuilderForm newScreen = new ShipBuilderForm();
+                newScreen.Show();
+                Close();
+            }
+
+            else
+            {
+                AddLaunchForm newScreen = new AddLaunchForm(shipToWeaponise);
+                newScreen.Show();
+                Close();
+            }
         }
 
         

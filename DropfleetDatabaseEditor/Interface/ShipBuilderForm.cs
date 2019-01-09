@@ -156,13 +156,13 @@ namespace DropfleetDatabaseEditor.Interface
         private void AddWeaponsButton_Click(object sender, EventArgs e)
         {
             shipController.InsertShip(newShip);
-            newShip.ShipID = shipController.GetShipID(newShip.Name, newShip.Points);
+            newShip.ShipID = shipController.GetShipID(newShip.Name, newShip.Points, newShip.Faction.FactionID);
             WeaponiseShipForm newScreen = new WeaponiseShipForm(newShip);
             newScreen.Show();
             Close();
         }
 
-        private void factionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void FactionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             newShip.Faction = (Faction)factionComboBox.SelectedItem;
         }

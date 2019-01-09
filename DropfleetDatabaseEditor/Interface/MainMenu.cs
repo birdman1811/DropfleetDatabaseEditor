@@ -17,25 +17,32 @@ namespace DropfleetDatabaseEditor.Interface
             InitializeComponent();
         }
 
-        private void usersButton_Click(object sender, EventArgs e)
+        private void UsersButton_Click(object sender, EventArgs e)
         {
             UsersMenu newScreen = new UsersMenu();
             newScreen.Show();
             this.Close();
         }
 
-        private void factionControlButton_Click(object sender, EventArgs e)
+        private void FactionControlButton_Click(object sender, EventArgs e)
         {
             FactionMenu newScreen = new FactionMenu();
             newScreen.Show();
             this.Close();
         }
 
-        private void shipsButton_Click(object sender, EventArgs e)
+        private void ShipsButton_Click(object sender, EventArgs e)
         {
             ShipControlForm newScreen = new ShipControlForm();
             newScreen.Show();
             this.Close();
+        }
+
+        private void MiscellaneousButton_Click(object sender, EventArgs e)
+        {
+            MiscellaneousMenu newScreen = new MiscellaneousMenu();
+            newScreen.Show();
+            Close();
         }
     }
 }

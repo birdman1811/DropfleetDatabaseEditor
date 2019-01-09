@@ -42,20 +42,28 @@ namespace DropfleetDatabaseEditor.Controllers
             }
 
             connection.Close();
+
+            ship.ShipID = GetShipID(ship.Name, ship.Points, ship.Faction.FactionID);
+
+            foreach (ShipRule rule in ship.Special)
+            {
+                AddSpecialRuleInstance(ship.ShipID, rule);
+            }
             
         }
 
-        public int GetShipID(string shipName, int shipPoints)
+        public int GetShipID(string shipName, int shipPoints, int factionID)
         {
             connection = dBControl.GetConnection();
             connection.Open();
             MySqlDataReader dataReader;
             int shipID = 0;
 
-            using (MySqlCommand cmd = new MySqlCommand("SELECT shipID FROM Ships WHERE name = @name AND points = @points", connection))
+            using (MySqlCommand cmd = new MySqlCommand("SELECT shipID FROM Ships WHERE name = @name AND points = @points AND faction = @faction", connection))
             {
                 cmd.Parameters.AddWithValue("@name", shipName);
                 cmd.Parameters.AddWithValue("@points", shipPoints);
+                cmd.Parameters.AddWithValue("@faction", factionID);
 
                 dataReader = cmd.ExecuteReader();
 
@@ -67,6 +75,25 @@ namespace DropfleetDatabaseEditor.Controllers
 
             connection.Close();
             return shipID;
+        }
+
+        
+
+        public void AddSpecialRuleInstance(int shipID, ShipRule rule)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("INSERT INTO ShipSpecialRulesInstances (ship, rule, amount) VALUES " +
+                "(@ship, @rule, @amount)", connection))
+            {
+                cmd.Parameters.AddWithValue("@ship", shipID);
+                cmd.Parameters.AddWithValue("@rule", rule.RuleID);
+                cmd.Parameters.AddWithValue("@amount", rule.Amount);
+
+                int rows = cmd.ExecuteNonQuery();
+            }
+            connection.Close();
         }
     }
 }

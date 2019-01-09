@@ -46,7 +46,7 @@ namespace DropfleetDatabaseEditor.Controllers
             connection = dBControl.GetConnection();
             connection.Open();
 
-            using (MySqlCommand cmd = new MySqlCommand("INSERT INTO AssetInstance (asset, ship, value) VALUES (@assetID, @shipID. @value)", connection))
+            using (MySqlCommand cmd = new MySqlCommand("INSERT INTO AssetInstance (asset, ship, value) VALUES (@assetID, @shipID, @value)", connection))
             {
                 cmd.Parameters.AddWithValue("@assetID", asset.AssetID);
                 cmd.Parameters.AddWithValue("@shipID", shipID);
@@ -90,6 +90,42 @@ namespace DropfleetDatabaseEditor.Controllers
                 int rows = cmd.ExecuteNonQuery();
             }
 
+            connection.Close();
+        }
+
+        public void InsertAssetSpecialRuleInstance(LaunchAsset asset, WeaponRuleInstance rule, int shipID)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("INSERT INTO AssetSpecialRuleInstance (asset, rule, amount, ship) VALUES " +
+                "(@asset, @rule, @amount, @ship)", connection))
+            {
+                cmd.Parameters.AddWithValue("@asset", asset.AssetID);
+                cmd.Parameters.AddWithValue("@rule", rule.RuleID);
+                cmd.Parameters.AddWithValue("@amount", rule.Amount);
+                cmd.Parameters.AddWithValue("@ship", shipID);
+
+                int rows = cmd.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
+        public void DeleteAssetSpecialRuleInstance(LaunchAsset asset, WeaponRuleInstance rule, int shipID)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("DELETE FROM AssetSpecialRuleInsance WHERE asset = @asset AND rule = @rule " +
+                "AND amount = @amount AND ship = @ship", connection))
+            {
+                cmd.Parameters.AddWithValue("@asset", asset.AssetID);
+                cmd.Parameters.AddWithValue("@rule", rule.RuleID);
+                cmd.Parameters.AddWithValue("@amount", rule.Amount);
+                cmd.Parameters.AddWithValue("@ship", shipID);
+
+                int rows = cmd.ExecuteNonQuery();
+            }
             connection.Close();
         }
     }

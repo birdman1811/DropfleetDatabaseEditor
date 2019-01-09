@@ -32,6 +32,7 @@ namespace DropfleetDatabaseEditor.Datastore
         {
             Special = new List<ShipRule>();
             weapons = new List<WeaponFacing>();
+            launchAssets = new List<LaunchAsset>();
         }
 
         public Ship(int shipID, string name, Faction faction, int scan, int sigMin, int sigMax, int thrust, int hull, int aMin, int aMax, int pd, int gMin, int gMax, bool launch,
