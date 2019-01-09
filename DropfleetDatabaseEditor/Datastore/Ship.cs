@@ -33,6 +33,7 @@ namespace DropfleetDatabaseEditor.Datastore
             Special = new List<ShipRule>();
             weapons = new List<WeaponFacing>();
             launchAssets = new List<LaunchAsset>();
+            tonnage = new Tonnage();
         }
 
         public Ship(int shipID, string name, Faction faction, int scan, int sigMin, int sigMax, int thrust, int hull, int aMin, int aMax, int pd, int gMin, int gMax, bool launch,
@@ -106,6 +107,11 @@ namespace DropfleetDatabaseEditor.Datastore
         public void RemoveRule(ShipRule rule)
         {
             Special.Remove(rule);
+        }
+
+        public void SetRules(List<ShipRule> rules)
+        {
+            Special = rules;
         }
 
         public void AddWeapon(WeaponFacing weapon)

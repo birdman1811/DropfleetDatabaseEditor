@@ -43,6 +43,35 @@ namespace DropfleetDatabaseEditor.Controllers
             return tonnageClassList;
         }
 
+        public Tonnage GetTonnageByID(int tonnageID)
+        {
+            Tonnage tonnage = new Tonnage();
+            connection = dBControl.GetConnection();
+            connection.Open();
+            MySqlDataReader dataReader;
+
+            using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM Tonnage WHERE tonnageID = @tonnageID", connection))
+            {
+                cmd.Parameters.AddWithValue("@tonnageID", tonnageID);
+
+                dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    tonnage.TonnageName = dataReader.GetString(1);
+                    tonnage.Value = dataReader.GetInt16(2);
+                    tonnage.TonnageClass = new TonnageClass
+                    {
+                        ClassID = dataReader.GetInt16(3)
+                    };
+                    tonnage.TonnageClass.ClassName = GetClassName(tonnage.TonnageClass.ClassID);
+                }
+            }
+
+            connection.Close();
+            return tonnage;
+        }
+
         public string GetClassName(int classID)
         {
             string className = "";

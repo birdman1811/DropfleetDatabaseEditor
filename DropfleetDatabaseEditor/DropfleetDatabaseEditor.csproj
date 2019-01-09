@@ -129,6 +129,12 @@
     <Compile Include="Interface\EditFactionForm.Designer.cs">
       <DependentUpon>EditFactionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\EditShipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\EditShipForm.Designer.cs">
+      <DependentUpon>EditShipForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\EditWeaponForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\EditFactionForm.resx">
       <DependentUpon>EditFactionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\EditShipForm.resx">
+      <DependentUpon>EditShipForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\EditUserForm.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>

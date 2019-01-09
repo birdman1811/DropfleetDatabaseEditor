@@ -44,5 +44,12 @@ namespace DropfleetDatabaseEditor.Interface
             newScreen.Show();
             Close();
         }
+
+        private void EditShipButton_Click(object sender, EventArgs e)
+        {
+            EditShipForm newScreen = new EditShipForm();
+            newScreen.Show();
+            Close();
+        }
     }
 }
