@@ -594,6 +594,7 @@
             this.deleteRuleButton.TabIndex = 20;
             this.deleteRuleButton.Text = "Delete";
             this.deleteRuleButton.UseVisualStyleBackColor = true;
+            this.deleteRuleButton.Click += new System.EventHandler(this.DeleteRuleButton_Click);
             // 
             // ruleAmountSelect
             // 
@@ -611,6 +612,7 @@
             this.addRuleButton.TabIndex = 2;
             this.addRuleButton.Text = "Add";
             this.addRuleButton.UseVisualStyleBackColor = true;
+            this.addRuleButton.Click += new System.EventHandler(this.AddRuleButton_Click);
             // 
             // rulesCombo
             // 
@@ -630,7 +632,6 @@
             this.ShipSpecialRulesBox.Name = "ShipSpecialRulesBox";
             this.ShipSpecialRulesBox.Size = new System.Drawing.Size(120, 116);
             this.ShipSpecialRulesBox.TabIndex = 0;
-            
             // 
             // EditShipForm
             // 

@@ -24,6 +24,7 @@ namespace DropfleetDatabaseEditor.Interface
         Ship selectedShip = new Ship();
         TonnageController tonnageControl = new TonnageController();
         List<Tonnage> tonnageList = new List<Tonnage>();
+        static Ship editShip = new Ship();
 
         public EditShipForm()
         {
@@ -36,7 +37,7 @@ namespace DropfleetDatabaseEditor.Interface
             selectShipCombo.DataSource = null;
             selectShipCombo.DataSource = shipList;
             selectShipCombo.DisplayMember = "name";
-            selectedShip = (Ship)selectShipCombo.SelectedItem;
+            editShip = (Ship)selectShipCombo.SelectedItem;
             tonnageList = tonnageControl.GetAllTonnages();
             ruleList = rulesControl.GetAllRules();
         }
@@ -67,13 +68,13 @@ namespace DropfleetDatabaseEditor.Interface
 
         private void SelectShipCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedShip = (Ship)selectShipCombo.SelectedItem;
+            editShip = (Ship)selectShipCombo.SelectedItem;
             
         }
 
         private void SelectShipButton_Click(object sender, EventArgs e)
         {
-            Ship editShip = selectedShip;
+            
             shipStatsPanel.Visible = true;
             specrulesPanel.Visible = true;
             panel1.Visible = false;
@@ -108,9 +109,29 @@ namespace DropfleetDatabaseEditor.Interface
             ShipSpecialRulesBox.DisplayMember = "rule";
             rulesCombo.DataSource = ruleList;
             rulesCombo.DisplayMember = "rule";
-
+            Console.WriteLine(editShip.ShipID);
         }
 
-        
+        private void DeleteRuleButton_Click(object sender, EventArgs e)
+        {
+            ShipRule ruleToDelete = (ShipRule)ShipSpecialRulesBox.SelectedItem;
+            editShip.RemoveRule(ruleToDelete);
+            rulesControl.DeleteRuleInstance(ruleToDelete, editShip.ShipID);
+            ShipSpecialRulesBox.DataSource = null;
+            ShipSpecialRulesBox.DataSource = editShip.Special;
+            ShipSpecialRulesBox.DisplayMember = "rule";
+        }
+
+        private void AddRuleButton_Click(object sender, EventArgs e)
+        {
+            ShipRule ruleToAdd = (ShipRule)rulesCombo.SelectedItem;
+            ruleToAdd.Amount = (int)ruleAmountSelect.Value;
+            editShip.AddRule(ruleToAdd);
+            Console.WriteLine(editShip.ShipID);
+            rulesControl.InsertRuleInstance(ruleToAdd, editShip.ShipID);
+            ShipSpecialRulesBox.DataSource = null;
+            ShipSpecialRulesBox.DataSource = editShip.Special;
+            ShipSpecialRulesBox.DisplayMember = "rule";
+        }
     }
 }

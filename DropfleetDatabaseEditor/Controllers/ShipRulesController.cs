@@ -68,10 +68,10 @@ namespace DropfleetDatabaseEditor.Controllers
             connection = dBControl.GetConnection();
             connection.Open();
 
-            using (MySqlCommand cmd = new MySqlCommand("DELETE FROM ShipSpecialRulesInstances WHERE amount = @amount" +
-                "ship = @shipID AND rule = @ruleID ", connection))
+            using (MySqlCommand cmd = new MySqlCommand("DELETE FROM ShipSpecialRulesInstances WHERE amount = @amount AND" +
+                " ship = @shipID AND rule = @ruleID ", connection))
             {
-                cmd.Parameters.AddWithValue("@ship", shipID);
+                cmd.Parameters.AddWithValue("@shipID", shipID);
                 cmd.Parameters.AddWithValue("@rule", rule.RuleID);
                 cmd.Parameters.AddWithValue("@amount", rule.Amount);
 
