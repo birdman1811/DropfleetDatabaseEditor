@@ -89,6 +89,7 @@
             this.AddRule.TabIndex = 13;
             this.AddRule.Text = "Add Rule";
             this.AddRule.UseVisualStyleBackColor = true;
+            this.AddRule.Click += new System.EventHandler(this.AddRule_Click);
             // 
             // finishButton
             // 
@@ -99,6 +100,7 @@
             this.finishButton.TabIndex = 12;
             this.finishButton.Text = "Finish";
             this.finishButton.UseVisualStyleBackColor = true;
+            this.finishButton.Click += new System.EventHandler(this.FinishButton_Click);
             // 
             // removeAssetButton
             // 
@@ -109,6 +111,7 @@
             this.removeAssetButton.TabIndex = 11;
             this.removeAssetButton.Text = "Remove Asset";
             this.removeAssetButton.UseVisualStyleBackColor = true;
+            this.removeAssetButton.Click += new System.EventHandler(this.RemoveAssetButton_Click);
             // 
             // addAssetButton
             // 
@@ -119,6 +122,7 @@
             this.addAssetButton.TabIndex = 10;
             this.addAssetButton.Text = "Add Asset";
             this.addAssetButton.UseVisualStyleBackColor = true;
+            this.addAssetButton.Click += new System.EventHandler(this.AddAssetButton_Click);
             // 
             // rulesQuantitySelect
             // 

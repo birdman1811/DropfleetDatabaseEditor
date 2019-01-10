@@ -106,7 +106,7 @@ namespace DropfleetDatabaseEditor.Interface
             GroupMaxSelect.Value = editShip.GMax;
 
             ShipSpecialRulesBox.DataSource = editShip.Special;
-            ShipSpecialRulesBox.DisplayMember = "rule";
+            ShipSpecialRulesBox.DisplayMember = "fullString";
             rulesCombo.DataSource = ruleList;
             rulesCombo.DisplayMember = "rule";
             Console.WriteLine(editShip.ShipID);
@@ -114,12 +114,13 @@ namespace DropfleetDatabaseEditor.Interface
 
         private void DeleteRuleButton_Click(object sender, EventArgs e)
         {
+            
             ShipRule ruleToDelete = (ShipRule)ShipSpecialRulesBox.SelectedItem;
             editShip.RemoveRule(ruleToDelete);
             rulesControl.DeleteRuleInstance(ruleToDelete, editShip.ShipID);
             ShipSpecialRulesBox.DataSource = null;
             ShipSpecialRulesBox.DataSource = editShip.Special;
-            ShipSpecialRulesBox.DisplayMember = "rule";
+            ShipSpecialRulesBox.DisplayMember = "fullString";
         }
 
         private void AddRuleButton_Click(object sender, EventArgs e)
@@ -131,7 +132,7 @@ namespace DropfleetDatabaseEditor.Interface
             rulesControl.InsertRuleInstance(ruleToAdd, editShip.ShipID);
             ShipSpecialRulesBox.DataSource = null;
             ShipSpecialRulesBox.DataSource = editShip.Special;
-            ShipSpecialRulesBox.DisplayMember = "rule";
+            ShipSpecialRulesBox.DisplayMember = "fullString";
         }
 
         private void EditWeaponsButton_Click(object sender, EventArgs e)

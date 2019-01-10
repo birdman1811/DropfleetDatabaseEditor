@@ -72,7 +72,7 @@ namespace DropfleetDatabaseEditor.Controllers
                 " ship = @shipID AND rule = @ruleID ", connection))
             {
                 cmd.Parameters.AddWithValue("@shipID", shipID);
-                cmd.Parameters.AddWithValue("@rule", rule.RuleID);
+                cmd.Parameters.AddWithValue("@ruleID", rule.RuleID);
                 cmd.Parameters.AddWithValue("@amount", rule.Amount);
 
                 int rows = cmd.ExecuteNonQuery();

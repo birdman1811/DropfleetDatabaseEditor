@@ -32,12 +32,13 @@ namespace DropfleetDatabaseEditor.Datastore
         public List<WeaponRuleInstance> Rules { get => rules; set => rules = value; }
 
         public string FullString
-        {
+        {            
             get
             {
                 if (this.Amount > 0)
                 {
-                    return Asset + " (" + Amount + ")";
+                    string fullRuleString = FullRulesString();
+                    return Asset + " (" + Amount + ")" + " " + fullRuleString;
                 }
                 else
                 {
@@ -46,6 +47,23 @@ namespace DropfleetDatabaseEditor.Datastore
             }
 
 
+        }
+
+        private string FullRulesString()
+        {
+            string fullRulesString = "";
+
+            var sb= new System.Text.StringBuilder();
+
+            foreach (WeaponRuleInstance r in Rules)
+            {
+                sb.AppendLine(r.Rule + "(" + r.Amount + ")" + " ".ToString());
+            }
+
+            fullRulesString = sb.ToString();
+            Console.WriteLine(fullRulesString);
+            return fullRulesString;
+            
         }
 
         public void AddRuleInstance(WeaponRuleInstance rule)

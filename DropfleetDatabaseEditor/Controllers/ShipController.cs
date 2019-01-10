@@ -281,9 +281,11 @@ namespace DropfleetDatabaseEditor.Controllers
 
                 while (dataReader2.Read())
                 {
-                    Facings newFacing = new Facings();
-                    newFacing.FaceID = dataReader2.GetInt16(0);
-                    newFacing.Facing = dataReader2.GetString(1);
+                    Facings newFacing = new Facings
+                    {
+                        FaceID = dataReader2.GetInt16(0),
+                        Facing = dataReader2.GetString(1)
+                    };
 
                     facingList.Add(newFacing);
                     Console.WriteLine("Facing " + newFacing.Facing + " To Weapon");
@@ -301,7 +303,7 @@ namespace DropfleetDatabaseEditor.Controllers
             MySqlDataReader dataReader;
 
             using (MySqlCommand cmd = new MySqlCommand("SELECT i.asset, l.asset, i.value FROM AssetInstance as i, LaunchAssets as l " +
-                "WHERE i.ship = @shipID AND l.assetID = i.asset'", connection))
+                "WHERE i.ship = @shipID AND l.assetID = i.asset", connection))
             {
                 cmd.Parameters.AddWithValue("@shipID", shipID);
 
@@ -309,10 +311,12 @@ namespace DropfleetDatabaseEditor.Controllers
 
                 while (dataReader.Read())
                 {
-                    LaunchAsset newAsset = new LaunchAsset();
-                    newAsset.AssetID = dataReader.GetInt16(0);
-                    newAsset.Asset = dataReader.GetString(1);
-                    newAsset.Amount = dataReader.GetInt16(2);
+                    LaunchAsset newAsset = new LaunchAsset
+                    {
+                        AssetID = dataReader.GetInt16(0),
+                        Asset = dataReader.GetString(1),
+                        Amount = dataReader.GetInt16(2)
+                    };
 
                     assetList.Add(newAsset);
                 }
@@ -347,12 +351,15 @@ namespace DropfleetDatabaseEditor.Controllers
 
                 while (dataReader2.Read())
                 {
-                    WeaponRuleInstance rule = new WeaponRuleInstance();
-                    rule.RuleID = dataReader2.GetInt16(0);
-                    rule.Rule = dataReader2.GetString(2);
-                    rule.Amount = dataReader2.GetInt16(1);
+                    WeaponRuleInstance rule = new WeaponRuleInstance
+                    {
+                        RuleID = dataReader2.GetInt16(0),
+                        Rule = dataReader2.GetString(2),
+                        Amount = dataReader2.GetInt16(1)
+                    };
 
                     rulesList.Add(rule);
+                    Console.WriteLine("Rule " + rule.Rule + " added");
                 }
             }
             connection2.Close();

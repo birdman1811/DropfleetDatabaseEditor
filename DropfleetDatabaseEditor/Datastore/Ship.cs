@@ -123,5 +123,15 @@ namespace DropfleetDatabaseEditor.Datastore
         {
             Weapons.Remove(weapon);
         }
+
+        public void AddAsset(LaunchAsset asset)
+        {
+            LaunchAssets.Add(asset);
+        }
+
+        public void DeleteAsset(LaunchAsset asset)
+        {
+            LaunchAssets.Remove(asset);
+        }
     }
 }
