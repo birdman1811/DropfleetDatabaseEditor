@@ -133,5 +133,12 @@ namespace DropfleetDatabaseEditor.Interface
             ShipSpecialRulesBox.DataSource = editShip.Special;
             ShipSpecialRulesBox.DisplayMember = "rule";
         }
+
+        private void EditWeaponsButton_Click(object sender, EventArgs e)
+        {
+            EditShipWeaponsForm newScreen = new EditShipWeaponsForm(editShip);
+            newScreen.Show();
+            Close();
+        }
     }
 }

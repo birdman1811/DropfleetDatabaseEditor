@@ -129,11 +129,23 @@
     <Compile Include="Interface\EditFactionForm.Designer.cs">
       <DependentUpon>EditFactionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\EditLaunchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\EditLaunchForm.Designer.cs">
+      <DependentUpon>EditLaunchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interface\EditShipForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Interface\EditShipForm.Designer.cs">
       <DependentUpon>EditShipForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\EditShipWeaponsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\EditShipWeaponsForm.Designer.cs">
+      <DependentUpon>EditShipWeaponsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interface\EditWeaponForm.cs">
       <SubType>Form</SubType>
@@ -239,8 +251,14 @@
     <EmbeddedResource Include="Interface\EditFactionForm.resx">
       <DependentUpon>EditFactionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Interface\EditLaunchForm.resx">
+      <DependentUpon>EditLaunchForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Interface\EditShipForm.resx">
       <DependentUpon>EditShipForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\EditShipWeaponsForm.resx">
+      <DependentUpon>EditShipWeaponsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Interface\EditUserForm.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>

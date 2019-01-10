@@ -182,6 +182,21 @@ namespace DropfleetDatabaseEditor.Controllers
             connection.Close();
         }
 
+        public void DeleteAllFacingsForWeapon(int listNumber)
+        {
+            connection = dBControl.GetConnection();
+            connection.Open();
+
+            using (MySqlCommand cmd = new MySqlCommand("DELETE FROM FacingInstance WHERE listNumber= @weaponInstance", connection))
+            {
+                cmd.Parameters.AddWithValue("@weaponInstance", listNumber);
+                
+
+                int rows = cmd.ExecuteNonQuery();
+            }
+            connection.Close();
+        }
+
         public void InsertWeaponInstance(WeaponFacing weaponFacing, int shipID)
         {
             connection = dBControl.GetConnection();
@@ -211,6 +226,8 @@ namespace DropfleetDatabaseEditor.Controllers
                 int rows = cmd.ExecuteNonQuery();
             }
             connection.Close();
+
+            DeleteAllFacingsForWeapon(weaponFacing.ListNumber);
         }
 
         public List<int> GetListNumbers()

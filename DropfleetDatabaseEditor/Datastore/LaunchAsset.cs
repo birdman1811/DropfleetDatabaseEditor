@@ -58,6 +58,11 @@ namespace DropfleetDatabaseEditor.Datastore
         {
             Rules.Remove(rule);
         }
+
+        public void SetRules(List<WeaponRuleInstance> rulesList)
+        {
+            Rules = rulesList;
+        }
         
     }
 }

@@ -13,7 +13,7 @@ namespace DropfleetDatabaseEditor.Datastore
         private string name;
         private int lockValue;
         private string attack;
-        private int damage;
+        private int damage;        
         private List<WeaponRuleInstance> rules;
 
         public Weapon()
@@ -30,6 +30,7 @@ namespace DropfleetDatabaseEditor.Datastore
             this.Attack = attack;
             this.Damage = damage;
             this.Rules = rules;
+            
         }
 
         public int WeaponID { get => weaponID; set => weaponID = value; }
@@ -39,6 +40,7 @@ namespace DropfleetDatabaseEditor.Datastore
         public string Name { get => name; set => name = value; }
         internal Faction Faction { get => faction; set => faction = value; }       
         internal List<WeaponRuleInstance> Rules { get => rules; set => rules = value; }
+        
 
         public void SetRules(List<WeaponRuleInstance> rules)
         {

@@ -36,7 +36,7 @@
             this.selectShipCombo = new System.Windows.Forms.ComboBox();
             this.selectFactionComboBox = new System.Windows.Forms.ComboBox();
             this.shipStatsPanel = new System.Windows.Forms.Panel();
-            this.AddWeaponsButton = new System.Windows.Forms.Button();
+            this.EditWeaponsButton = new System.Windows.Forms.Button();
             this.PointsSelect = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
             this.TonnageComboBox = new System.Windows.Forms.ComboBox();
@@ -175,7 +175,7 @@
             // shipStatsPanel
             // 
             this.shipStatsPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.shipStatsPanel.Controls.Add(this.AddWeaponsButton);
+            this.shipStatsPanel.Controls.Add(this.EditWeaponsButton);
             this.shipStatsPanel.Controls.Add(this.PointsSelect);
             this.shipStatsPanel.Controls.Add(this.label18);
             this.shipStatsPanel.Controls.Add(this.TonnageComboBox);
@@ -203,15 +203,16 @@
             this.shipStatsPanel.TabIndex = 9;
             this.shipStatsPanel.Visible = false;
             // 
-            // AddWeaponsButton
+            // EditWeaponsButton
             // 
-            this.AddWeaponsButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddWeaponsButton.Location = new System.Drawing.Point(623, 280);
-            this.AddWeaponsButton.Name = "AddWeaponsButton";
-            this.AddWeaponsButton.Size = new System.Drawing.Size(145, 98);
-            this.AddWeaponsButton.TabIndex = 27;
-            this.AddWeaponsButton.Text = "Add Weapons";
-            this.AddWeaponsButton.UseVisualStyleBackColor = true;
+            this.EditWeaponsButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditWeaponsButton.Location = new System.Drawing.Point(623, 280);
+            this.EditWeaponsButton.Name = "EditWeaponsButton";
+            this.EditWeaponsButton.Size = new System.Drawing.Size(145, 98);
+            this.EditWeaponsButton.TabIndex = 27;
+            this.EditWeaponsButton.Text = "Edit Weapons";
+            this.EditWeaponsButton.UseVisualStyleBackColor = true;
+            this.EditWeaponsButton.Click += new System.EventHandler(this.EditWeaponsButton_Click);
             // 
             // PointsSelect
             // 
@@ -682,7 +683,7 @@
         private System.Windows.Forms.ComboBox selectShipCombo;
         private System.Windows.Forms.ComboBox selectFactionComboBox;
         private System.Windows.Forms.Panel shipStatsPanel;
-        private System.Windows.Forms.Button AddWeaponsButton;
+        private System.Windows.Forms.Button EditWeaponsButton;
         private System.Windows.Forms.GroupBox specrulesPanel;
         private System.Windows.Forms.Button deleteRuleButton;
         private System.Windows.Forms.NumericUpDown ruleAmountSelect;

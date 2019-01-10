@@ -15,6 +15,7 @@ namespace DropfleetDatabaseEditor.Datastore
         public WeaponFacing()
         {
             facings = new List<Facings>();
+            weapon = new Weapon();
         }
 
         public WeaponFacing(Weapon weapon, List<Facings> facings, int listNumber)
@@ -58,6 +59,11 @@ namespace DropfleetDatabaseEditor.Datastore
         public void RemoveFacing(Facings facing)
         {
             facings.Remove(facing);
+        }
+
+        public void SetFacings(List<Facings> facingsList)
+        {
+            facings = facingsList;
         }
     }
 }

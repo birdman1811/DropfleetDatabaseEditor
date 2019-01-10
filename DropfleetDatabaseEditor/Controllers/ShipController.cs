@@ -51,7 +51,7 @@ namespace DropfleetDatabaseEditor.Controllers
             {
                 AddSpecialRuleInstance(ship.ShipID, rule);
             }
-            
+
         }
 
         public int GetShipID(string shipName, int shipPoints, int factionID)
@@ -79,7 +79,7 @@ namespace DropfleetDatabaseEditor.Controllers
             return shipID;
         }
 
-        
+
 
         public void AddSpecialRuleInstance(int shipID, ShipRule rule)
         {
@@ -175,7 +175,7 @@ namespace DropfleetDatabaseEditor.Controllers
                         GMin = dataReader.GetInt16(11),
                         GMax = dataReader.GetInt16(12),
                         Launch = dataReader.GetBoolean(13),
-                        Points = dataReader.GetInt16(15),                        
+                        Points = dataReader.GetInt16(15),
                     };
                     newShip.Tonnage.TonnageID = dataReader.GetInt16(14);
                     newShip.Tonnage = tonnageControl.GetTonnageByID(newShip.Tonnage.TonnageID);
@@ -188,7 +188,7 @@ namespace DropfleetDatabaseEditor.Controllers
                     shipList.Add(newShip);
                 }
             }
-            connection.Close();                     
+            connection.Close();
             return shipList;
         }
 
@@ -205,7 +205,8 @@ namespace DropfleetDatabaseEditor.Controllers
                 cmd.Parameters.AddWithValue("@ship", shipID);
 
                 dataReader1 = cmd.ExecuteReader();
-                while (dataReader1.Read()){
+                while (dataReader1.Read())
+                {
                     ShipRule newRule = new ShipRule
                     {
                         RuleID = dataReader1.GetInt16(0),
@@ -214,13 +215,148 @@ namespace DropfleetDatabaseEditor.Controllers
                     };
 
                     shipRules.Add(newRule);
-                    
+
                 }
 
-               
+
             }
             connection1.Close();
             return shipRules;
-        }       
+        }
+
+        public List<WeaponFacing> GetShipWeapons(int shipID)
+        {
+            List<WeaponFacing> weaponList = new List<WeaponFacing>();
+            connection = dBControl.GetConnection();
+            connection.Open();
+            MySqlDataReader dataReader;
+
+            using (MySqlCommand cmd = new MySqlCommand("SELECT i.weapon, i.listNumber, w.name FROM WeaponInstance AS i, Weapons AS w " +
+                "WHERE i.ship = @ship AND w.weaponID = i.weapon", connection))
+            {
+                cmd.Parameters.AddWithValue("@ship", shipID);
+
+                dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    WeaponFacing newWeapon = new WeaponFacing();
+                    newWeapon.Weapon.WeaponID = dataReader.GetInt16(0);
+                    newWeapon.ListNumber = dataReader.GetInt32(1);
+                    newWeapon.Weapon.Name = dataReader.GetString(2);
+
+                    weaponList.Add(newWeapon);
+
+                }
+            }
+
+            connection.Close();
+
+            foreach (WeaponFacing w in weaponList)
+            {
+                Thread facingsThread = new Thread(() => w.SetFacings(GetWeaponsFacings(w.ListNumber)))
+                {
+                    IsBackground = true,
+                    Name = "FacingsThread"
+                };
+                facingsThread.Start();
+            }
+
+            return weaponList;
+        }
+
+        private List<Facings> GetWeaponsFacings(int listNumber)
+        {
+            List<Facings> facingList = new List<Facings>();
+            MySqlConnection connection2 = dBControl.GetConnection();
+            connection2.Open();
+            MySqlDataReader dataReader2;
+
+            using (MySqlCommand cmd = new MySqlCommand("SELECT i.facing, f.facing FROM FacingInstance AS i, Facings as f " +
+                "WHERE i.listNumber = @listNumber AND f.faceID = i.facing ", connection2))
+            {
+                cmd.Parameters.AddWithValue("@listNumber", listNumber);
+
+                dataReader2 = cmd.ExecuteReader();
+
+                while (dataReader2.Read())
+                {
+                    Facings newFacing = new Facings();
+                    newFacing.FaceID = dataReader2.GetInt16(0);
+                    newFacing.Facing = dataReader2.GetString(1);
+
+                    facingList.Add(newFacing);
+                    Console.WriteLine("Facing " + newFacing.Facing + " To Weapon");
+                }
+            }
+            connection2.Close();
+            return facingList;
+        }
+
+        public List<LaunchAsset> GetShipsLaunchAssets(int shipID)
+        {
+            List<LaunchAsset> assetList = new List<LaunchAsset>();
+            connection = dBControl.GetConnection();
+            connection.Open();
+            MySqlDataReader dataReader;
+
+            using (MySqlCommand cmd = new MySqlCommand("SELECT i.asset, l.asset, i.value FROM AssetInstance as i, LaunchAssets as l " +
+                "WHERE i.ship = @shipID AND l.assetID = i.asset'", connection))
+            {
+                cmd.Parameters.AddWithValue("@shipID", shipID);
+
+                dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    LaunchAsset newAsset = new LaunchAsset();
+                    newAsset.AssetID = dataReader.GetInt16(0);
+                    newAsset.Asset = dataReader.GetString(1);
+                    newAsset.Amount = dataReader.GetInt16(2);
+
+                    assetList.Add(newAsset);
+                }
+                foreach (LaunchAsset l in assetList)
+                {
+                    Thread assetThread = new Thread(() => l.SetRules(GetAssetRules(l, shipID)))
+                    {
+                        IsBackground = true,
+                        Name = "Asset Thread"
+                    };
+                    assetThread.Start();
+                }
+            }
+            connection.Close();
+            return assetList;
+        }
+
+        private List<WeaponRuleInstance> GetAssetRules(LaunchAsset asset, int shipID)
+        {
+            List<WeaponRuleInstance> rulesList = new List<WeaponRuleInstance>();
+            MySqlConnection connection2 = dBControl.GetConnection();
+            connection2.Open();
+            MySqlDataReader dataReader2;
+
+            using (MySqlCommand cmd = new MySqlCommand("SELECT i.rule, i.amount, r.rule FROM AssetSpecialRuleInstance AS i, WeaponSpecialRules AS r " +
+                "WHERE  i.asset = @assetID AND i.ship = @shipID AND r.ruleid = i.rule", connection2))
+            {
+                cmd.Parameters.AddWithValue("@assetID", asset.AssetID);
+                cmd.Parameters.AddWithValue("@shipID", shipID);
+
+                dataReader2 = cmd.ExecuteReader();
+
+                while (dataReader2.Read())
+                {
+                    WeaponRuleInstance rule = new WeaponRuleInstance();
+                    rule.RuleID = dataReader2.GetInt16(0);
+                    rule.Rule = dataReader2.GetString(2);
+                    rule.Amount = dataReader2.GetInt16(1);
+
+                    rulesList.Add(rule);
+                }
+            }
+            connection2.Close();
+            return rulesList;
+        }
     }
 }
